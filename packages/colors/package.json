@@ -1,7 +1,7 @@
 {
   "name": "@durumim-ui/colors",
   "version": "0.1.0",
-  "description": "The @durumim-ui/colors package contains the design colors definitions used by durumim UI.",
+  "description": "The @durumim-ui/colors package contains the design colors definitions used by durumim UI. These tokens include colors, typography, spacing, and other design properties.",
   "scripts": {},
   "keywords": [
     "design system",
@@ -15,5 +15,8 @@
     "theme"
   ],
   "author": "Felipe Rosas (https://eufelipe.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
