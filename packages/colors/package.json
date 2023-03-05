@@ -17,6 +17,7 @@
   "author": "Felipe Rosas (https://eufelipe.com)",
   "license": "MIT",
   "devDependencies": {
+    "@durumim-ui/ts-config": "*",
     "typescript": "^4.9.5"
   }
 }
