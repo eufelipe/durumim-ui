@@ -23,6 +23,24 @@ StyleDictionary.registerTransform({
 module.exports = {
   source: ['src/**/*.json'],
   platforms: {
+    css: {
+      transformGroup: 'css',
+      files: [
+        {
+          destination: 'dist/css/colors.css',
+          format: 'css/variables',
+        },
+        {
+          destination: 'src/css/colors.css',
+          format: 'css/variables',
+        },
+      ],
+      options: {
+        showFileHeader: false,
+        outputReferences: false,
+      },
+    },
+
     js: {
       header: '',
       transformGroup: 'js',
