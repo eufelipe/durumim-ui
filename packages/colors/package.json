@@ -6,8 +6,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "build:tokens && tsup src/index.ts --format esm,cjs --dts",
-    "dev": "build:tokens && tsup src/index.ts --watch --format esm,cjs --dts",
+    "build:tokens": "style-dictionary build",
+    "build": "npm run build:tokens && tsup src/index.ts --format esm,cjs --dts",
+    "dev": "npm run build:tokens && tsup src/index.ts --watch --format esm,cjs --dts",
     "lint": "eslint src/**/*.ts* --fix"
   },
   "keywords": [
