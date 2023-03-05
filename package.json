@@ -1,9 +1,13 @@
 {
-  "name": "durumim-ui",
+  "name": "@durumim-ui/core",
   "version": "0.1.0",
   "description": "An open-source design system in JavaScript for creating consistent and high-quality user interfaces.",
   "author": "Felipe Rosas (https://eufelipe.com)",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/eufelipe/durumim-ui.git"
