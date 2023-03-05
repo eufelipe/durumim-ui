@@ -2,6 +2,9 @@
   "name": "@durumim-ui/colors",
   "version": "0.1.0",
   "description": "The @durumim-ui/colors package contains the design colors definitions used by durumim UI. These tokens include colors, typography, spacing, and other design properties.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --external @durumim-ui/ts-config",
     "dev": "tsup src/index.ts --watch --format esm,cjs --dts --external @durumim-ui/ts-config"
