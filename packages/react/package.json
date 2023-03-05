@@ -1,0 +1,37 @@
+{
+  "name": "@durumim-ui/react",
+  "version": "0.1.0",
+  "description": "A collection of reusable and customizable React components for building user interfaces.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external @durumim-ui/ts-config/react",
+    "dev": "tsup src/index.ts --watch --format esm,cjs --dts",
+    "lint": "eslint src/**/*.ts* --fix"
+  },
+  "keywords": [
+    "UI",
+    "React",
+    "Components",
+    "UI components",
+    "Library",
+    "Style",
+    "Design",
+    "Interface",
+    "User Interface",
+    "Front-end",
+    "Web",
+    "Development",
+    "Javascript",
+    "Design system"
+  ],
+  "author": "Felipe Rosas (https://eufelipe.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@durumim-ui/ts-config": "*",
+    "@durumim-ui/eslint-config": "*",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
+  }
+}
