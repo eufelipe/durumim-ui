@@ -1,0 +1,19 @@
+{
+  "name": "@durumim-ui/colors",
+  "version": "0.1.0",
+  "description": "The @durumim-ui/colors package contains the design colors definitions used by durumim UI.",
+  "scripts": {},
+  "keywords": [
+    "design system",
+    "UI",
+    "style",
+    "color palette",
+    "colors",
+    "tokens",
+    "CSS",
+    "variables",
+    "theme"
+  ],
+  "author": "Felipe Rosas (https://eufelipe.com)",
+  "license": "MIT"
+}
