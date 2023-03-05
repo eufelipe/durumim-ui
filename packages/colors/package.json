@@ -6,8 +6,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external @durumim-ui/ts-config",
-    "dev": "tsup src/index.ts --watch --format esm,cjs --dts --external @durumim-ui/ts-config",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --watch --format esm,cjs --dts",
     "lint": "eslint src/**/*.ts* --fix"
   },
   "keywords": [
