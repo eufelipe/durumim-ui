@@ -1,0 +1,52 @@
+name: Generate design colors from Figma
+
+on:
+  repository_dispatch:
+    types: update-colors
+ 
+defaults:
+  run:
+    working-directory: ./packages/colors
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create input JSON
+        id: create-json 
+         
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: ${{ github.event.client_payload.filename }}
+          json: ${{ github.event.client_payload.tokens }}
+          dir: './packages/colors/src'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build color tokens
+        run: npm run build:tokens
+
+      - name: Build package
+        run: npm run build:tsup
+
+      - name: Eslint
+        run: npm run lint
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: 'style: update colors design'
+          title: ${{ github.event.client_payload.commitMessage || 'update colors design' }}
+          body: 'Design tokens have been updated via Figma and need to be reviewed and merged.'
+        env:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          timeout: 300
