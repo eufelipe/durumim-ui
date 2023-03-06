@@ -7,8 +7,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build:tokens": "style-dictionary build",
-    "build": "npm run build:tokens && tsup src/index.ts --format esm,cjs --dts",
-    "dev": "npm run build:tokens && tsup src/index.ts --watch --format esm,cjs --dts",
+    "build:tsup": "tsup src/index.ts --format esm,cjs --dts",
+    "build:tsup:dev": "tsup src/index.ts --watch --format esm,cjs --dts",
+    "build": "npm run build:tokens && npm run build:tsup",
+    "dev": "npm run build:tokens && npm run build:tsup:dev",
     "lint": "eslint src/**/*.ts* --fix"
   },
   "keywords": [
