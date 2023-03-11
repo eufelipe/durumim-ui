@@ -8,6 +8,7 @@
     "build": "build-storybook"
   },
   "devDependencies": {
+    "@durumim-ui/colors": "*",
     "@babel/core": "^7.21.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -17,7 +18,7 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@vitejs/plugin-react": "^3.1.0",
-    "babel-loader": "^8.3.0",
+    "babel-loader": "^9.1.2",
     "vite": "^4.1.4"
   }
 }
