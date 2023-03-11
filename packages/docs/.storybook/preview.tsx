@@ -1,7 +1,9 @@
-import { themes } from '@storybook/theming'
+import durumimTheme from './durumimTheme'
+import './global.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  layout: 'centered',
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -9,6 +11,6 @@ export const parameters = {
     },
   },
   docs: {
-    theme: themes.dark,
+    theme: durumimTheme,
   },
 }

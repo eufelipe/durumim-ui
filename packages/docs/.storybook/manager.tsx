@@ -1,6 +1,7 @@
 import { addons } from '@storybook/addons'
-import { themes } from '@storybook/theming'
+
+import durumimTheme from './durumimTheme'
 
 addons.setConfig({
-  theme: themes.dark,
+  theme: durumimTheme,
 })
