@@ -16,7 +16,8 @@ StyleDictionary.registerTransform({
   name: 'name/remove-prefix',
   type: 'name',
   transformer: (prop) => {
-    return prop.name.replace(/^(color-)/, '').replace(/-/g, '')
+    const value = prop.name.replace(/^(color-)/, '')
+    return value.replace(/-(.)/g, (match, group1) => group1.toUpperCase())
   },
 })
 
