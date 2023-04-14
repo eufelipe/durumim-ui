@@ -5,9 +5,6 @@
   "author": "Felipe Rosas (https://eufelipe.com)",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/eufelipe/durumim-ui.git"
@@ -23,6 +20,6 @@
     "durumim"
   ],
   "devDependencies": {
-    "turbo": "^1.8.3"
+    "turbo": "^1.9.1"
   }
 }
