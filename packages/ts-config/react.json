@@ -3,7 +3,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "lib": ["dom", "ES2015"],
+    "lib": ["dom", "ES2017"],
     "module": "ESnext",
     "target": "es6"
   }
