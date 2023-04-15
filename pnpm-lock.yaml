@@ -7,7 +7,6 @@ importers:
       '@commitlint/cli': ^17.6.1
       '@commitlint/config-conventional': ^17.6.1
       cspell: ^6.31.1
-      eslint: ^8.38.0
       husky: ^8.0.3
       lint-staged: ^13.2.1
       turbo: ^1.9.1
@@ -15,7 +14,6 @@ importers:
       '@commitlint/cli': 17.6.1
       '@commitlint/config-conventional': 17.6.1
       cspell: 6.31.1
-      eslint: 8.38.0
       husky: 8.0.3
       lint-staged: 13.2.1
       turbo: 1.9.1
@@ -40,6 +38,7 @@ importers:
       '@durumim-ui/colors': '*'
       '@durumim-ui/eslint': '*'
       '@durumim-ui/react': '*'
+      '@durumim-ui/tokens': '*'
       '@durumim-ui/ts-config': '*'
       '@storybook/addon-actions': ^7.0.4
       '@storybook/addon-essentials': ^7.0.4
@@ -61,6 +60,7 @@ importers:
       '@durumim-ui/colors': link:../colors
       '@durumim-ui/eslint': link:../eslint
       '@durumim-ui/react': link:../react
+      '@durumim-ui/tokens': link:../tokens
       '@durumim-ui/ts-config': link:../ts-config
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

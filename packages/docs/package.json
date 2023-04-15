@@ -29,6 +29,7 @@
     "@durumim-ui/eslint": "*",
     "@durumim-ui/ts-config": "*",
     "@durumim-ui/react": "*",
+    "@durumim-ui/tokens": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
