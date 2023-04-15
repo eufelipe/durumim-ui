@@ -10,66 +10,17 @@ importers:
 
   packages/colors:
     specifiers:
-      '@durumim-ui/eslint-config': '*'
-      '@durumim-ui/ts-config': '*'
+      '@durumim-ui/config': '*'
       style-dictionary: ^3.7.2
       tsup: ^6.7.0
       typescript: ^4.9.5
     devDependencies:
-      '@durumim-ui/eslint-config': link:../eslint-config
-      '@durumim-ui/ts-config': link:../ts-config
+      '@durumim-ui/config': link:../config
       style-dictionary: 3.7.2
       tsup: 6.7.0_typescript@4.9.5
       typescript: 4.9.5
 
-  packages/docs:
-    specifiers:
-      '@babel/core': ^7.21.4
-      '@durumim-ui/colors': '*'
-      '@durumim-ui/eslint-config': '*'
-      '@durumim-ui/react': '*'
-      '@durumim-ui/ts-config': '*'
-      '@storybook/addon-actions': ^7.0.4
-      '@storybook/addon-essentials': ^7.0.4
-      '@storybook/addon-interactions': ^7.0.4
-      '@storybook/addon-links': ^7.0.4
-      '@storybook/addon-mdx-gfm': ^7.0.4
-      '@storybook/cli': ^7.0.4
-      '@storybook/react': ^7.0.4
-      '@storybook/react-vite': ^7.0.4
-      '@storybook/testing-library': ^0.1.0
-      '@vitejs/plugin-react': ^3.1.0
-      babel-loader: ^9.1.2
-      polished: ^4.2.2
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      storybook: ^7.0.4
-      vite: ^4.2.1
-    dependencies:
-      '@durumim-ui/colors': link:../colors
-      '@durumim-ui/eslint-config': link:../eslint-config
-      '@durumim-ui/react': link:../react
-      '@durumim-ui/ts-config': link:../ts-config
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    devDependencies:
-      '@babel/core': 7.21.4
-      '@storybook/addon-actions': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-essentials': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-interactions': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-links': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-mdx-gfm': 7.0.4
-      '@storybook/cli': 7.0.4
-      '@storybook/react': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/react-vite': 7.0.4_i2hehkuemw2qkf5fh2zcmq3w5u
-      '@storybook/testing-library': 0.1.0
-      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
-      babel-loader: 9.1.2_@babel+core@7.21.4
-      polished: 4.2.2
-      storybook: 7.0.4
-      vite: 4.2.1
-
-  packages/eslint-config:
+  packages/config:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.58.0
       '@typescript-eslint/parser': ^5.58.0
@@ -99,22 +50,62 @@ importers:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.38.0
       prettier: 2.8.7
 
+  packages/docs:
+    specifiers:
+      '@babel/core': ^7.21.4
+      '@durumim-ui/colors': '*'
+      '@durumim-ui/config': '*'
+      '@durumim-ui/react': '*'
+      '@storybook/addon-actions': ^7.0.4
+      '@storybook/addon-essentials': ^7.0.4
+      '@storybook/addon-interactions': ^7.0.4
+      '@storybook/addon-links': ^7.0.4
+      '@storybook/addon-mdx-gfm': ^7.0.4
+      '@storybook/cli': ^7.0.4
+      '@storybook/react': ^7.0.4
+      '@storybook/react-vite': ^7.0.4
+      '@storybook/testing-library': ^0.1.0
+      '@vitejs/plugin-react': ^3.1.0
+      babel-loader: ^9.1.2
+      polished: ^4.2.2
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      storybook: ^7.0.4
+      vite: ^4.2.1
+    dependencies:
+      '@durumim-ui/colors': link:../colors
+      '@durumim-ui/config': link:../config
+      '@durumim-ui/react': link:../react
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@babel/core': 7.21.4
+      '@storybook/addon-actions': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-essentials': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-interactions': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-links': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-mdx-gfm': 7.0.4
+      '@storybook/cli': 7.0.4
+      '@storybook/react': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/react-vite': 7.0.4_i2hehkuemw2qkf5fh2zcmq3w5u
+      '@storybook/testing-library': 0.1.0
+      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
+      babel-loader: 9.1.2_@babel+core@7.21.4
+      polished: 4.2.2
+      storybook: 7.0.4
+      vite: 4.2.1
+
   packages/react:
     specifiers:
       '@durumim-ui/colors': '*'
-      '@durumim-ui/eslint-config': '*'
-      '@durumim-ui/ts-config': '*'
+      '@durumim-ui/config': '*'
       tsup: ^6.7.0
       typescript: ^4.9.5
     devDependencies:
       '@durumim-ui/colors': link:../colors
-      '@durumim-ui/eslint-config': link:../eslint-config
-      '@durumim-ui/ts-config': link:../ts-config
+      '@durumim-ui/config': link:../config
       tsup: 6.7.0_typescript@4.9.5
       typescript: 4.9.5
-
-  packages/ts-config:
-    specifiers: {}
 
 packages:
 
@@ -247,7 +238,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       debug: 4.3.4
       lodash.debounce: 4.0.8
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -2194,7 +2185,7 @@ packages:
       '@storybook/preview-api': 7.0.4
       '@storybook/theming': 7.0.4_biqbaboplfbrettd7655fr4n2y
       '@storybook/types': 7.0.4
-      '@types/lodash': 4.14.192
+      '@types/lodash': 4.14.194
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.21
@@ -2878,7 +2869,7 @@ packages:
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.15.11
+      '@types/node': 16.18.23
     dev: true
 
   /@types/graceful-fs/4.1.6:
@@ -2911,8 +2902,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/lodash/4.14.192:
-    resolution: {integrity: sha512-km+Vyn3BYm5ytMO13k9KTp27O75rbQ0NFw+U//g+PX7VZyjCioXaRFisqSIJRECljcTv73G3i6BpglNGHgUQ5A==}
+  /@types/lodash/4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
     dev: true
 
   /@types/mdast/3.0.11:
@@ -2944,7 +2935,7 @@ packages:
   /@types/node-fetch/2.6.3:
     resolution: {integrity: sha512-ETTL1mOEdq/sxUtgtOhKjyB2Irra4cjxksvcMUR5Zr4n+PxVhsCD9WS46oPbHL3et9Zde7CNRr+WUNlcHvsX+w==}
     dependencies:
-      '@types/node': 18.15.11
+      '@types/node': 16.18.23
       form-data: 3.0.1
     dev: true
 
@@ -3655,7 +3646,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001478
-      electron-to-chromium: 1.4.362
+      electron-to-chromium: 1.4.365
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -4267,8 +4258,8 @@ packages:
       jake: 10.8.5
     dev: true
 
-  /electron-to-chromium/1.4.362:
-    resolution: {integrity: sha512-PYzAoScDfUcAwZfJQvr6hK2xXzLsMocj/Wuz6LpW6TZQNVv9TflBSB+UoEPuFujc478BgAxCoCFarcVPmjzsog==}
+  /electron-to-chromium/1.4.365:
+    resolution: {integrity: sha512-FRHZO+1tUNO4TOPXmlxetkoaIY8uwHzd1kKopK/Gx2SKn1L47wJXWD44wxP5CGRyyP98z/c8e1eBzJrgPeiBOg==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -4498,13 +4489,13 @@ packages:
     dependencies:
       debug: 3.2.7
       is-core-module: 2.12.0
-      resolve: 1.22.2
+      resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /eslint-module-utils/2.7.4_qzpqtbgst6rl3av2ypjpwzqujy:
-    resolution: {integrity: sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==}
+  /eslint-module-utils/2.8.0_qzpqtbgst6rl3av2ypjpwzqujy:
+    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -4561,13 +4552,13 @@ packages:
       doctrine: 2.1.0
       eslint: 8.38.0
       eslint-import-resolver-node: 0.3.7
-      eslint-module-utils: 2.7.4_qzpqtbgst6rl3av2ypjpwzqujy
+      eslint-module-utils: 2.8.0_qzpqtbgst6rl3av2ypjpwzqujy
       has: 1.0.3
       is-core-module: 2.12.0
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.0
       tsconfig-paths: 3.14.2
     transitivePeerDependencies:
@@ -4614,7 +4605,7 @@ packages:
       ignore: 5.2.4
       is-core-module: 2.12.0
       minimatch: 3.1.2
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 7.4.0
     dev: true
 
@@ -5052,8 +5043,8 @@ packages:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
 
-  /flow-parser/0.203.1:
-    resolution: {integrity: sha512-Nw2M8MPP/Zb+yhvmPDEjzkCXLtgyWGKXZjAYOVftm+wIf3xd4FKa7nRI9v67rODs0WzxMbPc8IPs/7o/dyxo/Q==}
+  /flow-parser/0.204.0:
+    resolution: {integrity: sha512-cQhNPLOk5NFyDXBC8WE8dy2Gls+YqKI3FNqQbJ7UrbFyd30IdEX3t27u3VsnoVK22I872+PWeb1KhHxDgu7kAg==}
     engines: {node: '>=0.4.0'}
     dev: true
 
@@ -5949,7 +5940,7 @@ packages:
       '@babel/register': 7.21.0_@babel+core@7.21.4
       babel-core: 7.0.0-bridge.0_@babel+core@7.21.4
       chalk: 4.1.2
-      flow-parser: 0.203.1
+      flow-parser: 0.204.0
       graceful-fs: 4.2.11
       micromatch: 4.0.5
       neo-async: 2.6.2
@@ -6795,7 +6786,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
     dev: true
@@ -7360,7 +7351,7 @@ packages:
       estree-to-babel: 3.2.1
       neo-async: 2.6.2
       node-dir: 0.1.17
-      resolve: 1.22.2
+      resolve: 1.22.3
       strip-indent: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7491,7 +7482,7 @@ packages:
     resolution: {integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==}
     engines: {node: '>= 0.10'}
     dependencies:
-      resolve: 1.22.2
+      resolve: 1.22.3
     dev: true
 
   /regenerate-unicode-properties/10.1.0:
@@ -7597,8 +7588,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /resolve/1.22.2:
-    resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
+  /resolve/1.22.3:
+    resolution: {integrity: sha512-P8ur/gp/AmbEzjr729bZnLjXK5Z+4P0zhIJgBgzqRih7hL7BOukHGtSTA3ACMY467GRFz3duQsi0bDZdR7DKdw==}
     hasBin: true
     dependencies:
       is-core-module: 2.12.0
@@ -8688,7 +8679,7 @@ packages:
     dependencies:
       esbuild: 0.17.16
       postcss: 8.4.21
-      resolve: 1.22.2
+      resolve: 1.22.3
       rollup: 3.20.2
     optionalDependencies:
       fsevents: 2.3.2

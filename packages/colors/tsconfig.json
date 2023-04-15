@@ -1,4 +1,4 @@
 {
-  "extends": "@durumim-ui/ts-config/base.json",
+  "extends": "@durumim-ui/config/ts-config/base.json",
   "include": ["src"]
 }

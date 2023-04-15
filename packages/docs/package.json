@@ -26,9 +26,8 @@
   },
   "dependencies": {
     "@durumim-ui/colors": "*",
-    "@durumim-ui/eslint-config": "*",
+    "@durumim-ui/config": "*",
     "@durumim-ui/react": "*",
-    "@durumim-ui/ts-config": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
