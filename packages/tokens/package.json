@@ -1,0 +1,31 @@
+{
+  "name": "@durumim-ui/tokens",
+  "version": "0.1.0",
+  "description": "The @durumim-ui/tokens package contains the tokens definitions used by durumim UI. These tokens include, typography, spacing, and other design properties.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.ts --watch --format esm,cjs --dts"
+  },
+  "keywords": [
+    "design system",
+    "UI",
+    "style",
+    "tokens",
+    "CSS",
+    "variables",
+    "theme",
+    "typography",
+    "spacing",
+    "fonts"
+  ],
+  "author": "Felipe Rosas (https://eufelipe.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@durumim-ui/config": "*",
+    "tsup": "^6.7.0",
+    "typescript": "^4.9.5"
+  }
+}
