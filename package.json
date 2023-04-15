@@ -12,10 +12,6 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "format:check": "prettier --check ./packages/**/src",
-    "format:write": "prettier --write ./packages/**/src",
-    "lint:check": "eslint ./packages/**/src/**/*.ts*",
-    "lint:fix": "eslint ./packages/**/src/**/*.ts* --fix",
     "cspell": "cspell \"./packages/**/src/**/*\"",
     "prepare": "husky install"
   },

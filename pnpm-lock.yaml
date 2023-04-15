@@ -7,6 +7,7 @@ importers:
       '@commitlint/cli': ^17.6.1
       '@commitlint/config-conventional': ^17.6.1
       cspell: ^6.31.1
+      eslint: ^8.38.0
       husky: ^8.0.3
       lint-staged: ^13.2.1
       turbo: ^1.9.1
@@ -14,23 +15,73 @@ importers:
       '@commitlint/cli': 17.6.1
       '@commitlint/config-conventional': 17.6.1
       cspell: 6.31.1
+      eslint: 8.38.0
       husky: 8.0.3
       lint-staged: 13.2.1
       turbo: 1.9.1
 
   packages/colors:
     specifiers:
-      '@durumim-ui/config': '*'
+      '@durumim-ui/eslint': '*'
+      '@durumim-ui/ts-config': '*'
       style-dictionary: ^3.7.2
       tsup: ^6.7.0
       typescript: ^4.9.5
     devDependencies:
-      '@durumim-ui/config': link:../config
+      '@durumim-ui/eslint': link:../eslint
+      '@durumim-ui/ts-config': link:../ts-config
       style-dictionary: 3.7.2
       tsup: 6.7.0_typescript@4.9.5
       typescript: 4.9.5
 
-  packages/config:
+  packages/docs:
+    specifiers:
+      '@babel/core': ^7.21.4
+      '@durumim-ui/colors': '*'
+      '@durumim-ui/eslint': '*'
+      '@durumim-ui/react': '*'
+      '@durumim-ui/ts-config': '*'
+      '@storybook/addon-actions': ^7.0.4
+      '@storybook/addon-essentials': ^7.0.4
+      '@storybook/addon-interactions': ^7.0.4
+      '@storybook/addon-links': ^7.0.4
+      '@storybook/addon-mdx-gfm': ^7.0.4
+      '@storybook/cli': ^7.0.4
+      '@storybook/react': ^7.0.4
+      '@storybook/react-vite': ^7.0.4
+      '@storybook/testing-library': ^0.1.0
+      '@vitejs/plugin-react': ^3.1.0
+      babel-loader: ^9.1.2
+      polished: ^4.2.2
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      storybook: ^7.0.4
+      vite: ^4.2.1
+    dependencies:
+      '@durumim-ui/colors': link:../colors
+      '@durumim-ui/eslint': link:../eslint
+      '@durumim-ui/react': link:../react
+      '@durumim-ui/ts-config': link:../ts-config
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@babel/core': 7.21.4
+      '@storybook/addon-actions': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-essentials': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-interactions': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-links': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-mdx-gfm': 7.0.4
+      '@storybook/cli': 7.0.4
+      '@storybook/react': 7.0.4_biqbaboplfbrettd7655fr4n2y
+      '@storybook/react-vite': 7.0.4_i2hehkuemw2qkf5fh2zcmq3w5u
+      '@storybook/testing-library': 0.1.0
+      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
+      babel-loader: 9.1.2_@babel+core@7.21.4
+      polished: 4.2.2
+      storybook: 7.0.4
+      vite: 4.2.1
+
+  packages/eslint:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.58.0
       '@typescript-eslint/parser': ^5.58.0
@@ -60,62 +111,34 @@ importers:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.38.0
       prettier: 2.8.7
 
-  packages/docs:
-    specifiers:
-      '@babel/core': ^7.21.4
-      '@durumim-ui/colors': '*'
-      '@durumim-ui/config': '*'
-      '@durumim-ui/react': '*'
-      '@storybook/addon-actions': ^7.0.4
-      '@storybook/addon-essentials': ^7.0.4
-      '@storybook/addon-interactions': ^7.0.4
-      '@storybook/addon-links': ^7.0.4
-      '@storybook/addon-mdx-gfm': ^7.0.4
-      '@storybook/cli': ^7.0.4
-      '@storybook/react': ^7.0.4
-      '@storybook/react-vite': ^7.0.4
-      '@storybook/testing-library': ^0.1.0
-      '@vitejs/plugin-react': ^3.1.0
-      babel-loader: ^9.1.2
-      polished: ^4.2.2
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      storybook: ^7.0.4
-      vite: ^4.2.1
-    dependencies:
-      '@durumim-ui/colors': link:../colors
-      '@durumim-ui/config': link:../config
-      '@durumim-ui/react': link:../react
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    devDependencies:
-      '@babel/core': 7.21.4
-      '@storybook/addon-actions': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-essentials': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-interactions': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-links': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-mdx-gfm': 7.0.4
-      '@storybook/cli': 7.0.4
-      '@storybook/react': 7.0.4_biqbaboplfbrettd7655fr4n2y
-      '@storybook/react-vite': 7.0.4_i2hehkuemw2qkf5fh2zcmq3w5u
-      '@storybook/testing-library': 0.1.0
-      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
-      babel-loader: 9.1.2_@babel+core@7.21.4
-      polished: 4.2.2
-      storybook: 7.0.4
-      vite: 4.2.1
-
   packages/react:
     specifiers:
       '@durumim-ui/colors': '*'
-      '@durumim-ui/config': '*'
+      '@durumim-ui/eslint': '*'
+      '@durumim-ui/ts-config': '*'
       tsup: ^6.7.0
       typescript: ^4.9.5
     devDependencies:
       '@durumim-ui/colors': link:../colors
-      '@durumim-ui/config': link:../config
+      '@durumim-ui/eslint': link:../eslint
+      '@durumim-ui/ts-config': link:../ts-config
       tsup: 6.7.0_typescript@4.9.5
       typescript: 4.9.5
+
+  packages/tokens:
+    specifiers:
+      '@durumim-ui/eslint': '*'
+      '@durumim-ui/ts-config': '*'
+      tsup: ^6.7.0
+      typescript: ^4.9.5
+    devDependencies:
+      '@durumim-ui/eslint': link:../eslint
+      '@durumim-ui/ts-config': link:../ts-config
+      tsup: 6.7.0_typescript@4.9.5
+      typescript: 4.9.5
+
+  packages/ts-config:
+    specifiers: {}
 
 packages:
 

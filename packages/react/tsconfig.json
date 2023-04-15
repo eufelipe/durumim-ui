@@ -1,4 +1,4 @@
 {
-  "extends": "@durumim-ui/config/ts-config/react.json",
+  "extends": "@durumim-ui/ts-config/react.json",
   "include": ["src"]
 }
