@@ -16,6 +16,7 @@
     "format:write": "prettier --write ./packages/**/src",
     "lint:check": "eslint ./packages/**/src/**/*.ts*",
     "lint:fix": "eslint ./packages/**/src/**/*.ts* --fix",
+    "cspell": "cspell \"./packages/**/src/**/*\"",
     "prepare": "husky install"
   },
   "keywords": [
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
+    "cspell": "^6.31.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "turbo": "^1.9.1"
