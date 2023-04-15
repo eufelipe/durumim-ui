@@ -1,0 +1,6 @@
+{
+  "./packages/**/src/**/*.{ts,tsx,js}": [
+    "npm run lint:fix",
+    "npm run format:write"
+  ]
+}
