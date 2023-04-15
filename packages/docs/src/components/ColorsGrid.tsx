@@ -105,3 +105,5 @@ const styles = {
     fontSize: 12,
   },
 };
+
+export default ColorsGrid;
