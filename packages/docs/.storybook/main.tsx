@@ -1,4 +1,6 @@
-module.exports = {
+import { StorybookConfig } from "@storybook/react-vite/dist";
+
+const config: StorybookConfig = {
   stories: ["../src/pages/**/*.stories.mdx", "../src/stories/**/*.stories.tsx"],
   addons: [
     "@storybook/addon-links",
@@ -14,14 +16,8 @@ module.exports = {
     storyStoreV7: true,
   },
   async viteFinal(config, { configType }) {
-    if (configType === "DEVELOPMENT") {
-      config.server.port = 6001;
-      config.server.https = false;
-      config.server.host = true;
-      config.server.hmr = {
-        port: 443,
-        protocol: "ws",
-      };
+    if (configType === "PRODUCTION") {
+      config.base = "/durumim-ui/";
     }
     return config;
   },
@@ -29,3 +25,5 @@ module.exports = {
     autodocs: true,
   },
 };
+
+export default config;
