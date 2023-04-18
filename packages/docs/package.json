@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "storybook dev",
     "build": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "touch ./storybook-static/.nojekyll && storybook-to-ghpages"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -24,7 +24,8 @@
     "babel-loader": "^9.1.2",
     "polished": "^4.2.2",
     "storybook": "7.1.0-alpha.5",
-    "vite": "^4.2.1"
+    "vite": "^4.2.1",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "dependencies": {
     "@durumim-ui/colors": "*",
