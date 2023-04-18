@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "storybook dev",
-    "build": "storybook build"
+    "build": "storybook build",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -17,6 +18,7 @@
     "@storybook/cli": "7.1.0-alpha.5",
     "@storybook/react": "7.1.0-alpha.5",
     "@storybook/react-vite": "7.1.0-alpha.5",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.1.0",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^9.1.2",
@@ -27,9 +29,9 @@
   "dependencies": {
     "@durumim-ui/colors": "*",
     "@durumim-ui/eslint": "*",
-    "@durumim-ui/ts-config": "*",
     "@durumim-ui/react": "*",
     "@durumim-ui/tokens": "*",
+    "@durumim-ui/ts-config": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
