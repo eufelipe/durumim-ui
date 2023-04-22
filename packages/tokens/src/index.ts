@@ -1,3 +1,4 @@
+export * from "./breakpoints";
 export * from "./font-sizes";
 export * from "./font-weight";
 export * from "./fonts";
