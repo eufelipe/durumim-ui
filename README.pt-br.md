@@ -18,7 +18,7 @@ um jovem <strong>design system</strong>
 
 🚧 Projeto em andamento para criar um design system de código aberto em JavaScript. O projeto visa fornecer uma coleção de componentes reutilizáveis e estilos padronizados, projetados para ajudar os desenvolvedores a criar interfaces de usuário atraentes e consistentes.  👨‍💻💻
  
- [✨ Veja a documentação](https://eufelipe.github.io/durumim-ui/)
+ [✨ Veja a documentação](https://eufelipe.github.io/durumim-ui/?path=/docs/home--docs)
 
 <p>&nbsp;</p>
 
