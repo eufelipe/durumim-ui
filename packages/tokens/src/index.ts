@@ -7,3 +7,4 @@ export * from "./radii";
 export * from "./shadows";
 export * from "./space";
 export * from "./transitions";
+export * from "./zIndices";
