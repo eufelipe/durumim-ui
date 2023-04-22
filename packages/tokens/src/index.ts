@@ -2,6 +2,7 @@ export * from "./breakpoints";
 export * from "./font-sizes";
 export * from "./font-weight";
 export * from "./fonts";
+export * from "./letterSpacings";
 export * from "./line-height";
 export * from "./radii";
 export * from "./shadows";
