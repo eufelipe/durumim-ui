@@ -119,15 +119,20 @@ importers:
     specifiers:
       '@durumim-ui/colors': '*'
       '@durumim-ui/eslint': '*'
+      '@durumim-ui/tokens': '*'
       '@durumim-ui/ts-config': '*'
+      '@stitches/react': ^1.2.8
       '@types/react': ^18.0.38
       '@types/react-dom': ^18.0.11
       react: ^18.2.0
       tsup: ^6.7.0
       typescript: ^4.9.5
+    dependencies:
+      '@stitches/react': 1.2.8_react@18.2.0
     devDependencies:
       '@durumim-ui/colors': link:../colors
       '@durumim-ui/eslint': link:../eslint
+      '@durumim-ui/tokens': link:../tokens
       '@durumim-ui/ts-config': link:../ts-config
       '@types/react': 18.0.38
       '@types/react-dom': 18.0.11
@@ -2350,6 +2355,14 @@ packages:
   /@sinclair/typebox/0.25.24:
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
     dev: true
+
+  /@stitches/react/1.2.8_react@18.2.0:
+    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@storybook/addon-actions/7.1.0-alpha.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-hdLGOEQ0qxkMb8xCcsI+QKX0h3JcNtyARSExwSpQxpexzqEBEIdk8v9i+O5DMVPTG7wHd2Vqmwp66qSmgWWSNA==}
