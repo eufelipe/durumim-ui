@@ -6,3 +6,4 @@ export * from "./line-height";
 export * from "./radii";
 export * from "./shadows";
 export * from "./space";
+export * from "./transitions";
