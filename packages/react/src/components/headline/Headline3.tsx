@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType } from "react";
 
-import { styled } from "../../styles";
+import { styled } from "@/styles";
 
 export const Headline3 = styled("h3", {
   fontFamily: "$default",
