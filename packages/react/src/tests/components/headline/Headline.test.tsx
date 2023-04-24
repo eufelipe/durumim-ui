@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { Headline } from "@/components/headline/Headline";
-import { render, screen } from "@/tests/test-utils";
+import { render, screen } from "@/tests/utils/test-utils";
 
 describe("<Headline />", () => {
   beforeEach(() => {
@@ -29,7 +29,9 @@ describe("<Headline />", () => {
   });
 
   it("This should have the font size 2xl", () => {
-    expect(screen.getByText(/Deixa eu dançar, pro meu corpo ficar odara/i)).toHaveStyle({
+    expect(
+      screen.getByText(/Deixa eu dançar, pro meu corpo ficar odara/i)
+    ).toHaveStyle({
       "font-size": "1.5em",
     });
   });
