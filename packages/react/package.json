@@ -8,7 +8,10 @@
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "dev": "tsup src/index.tsx --watch --format esm,cjs --dts --external react",
-    "lint": "eslint src/**/*.ts* --fix"
+    "lint": "eslint src/**/*.ts* --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [
     "UI",
@@ -33,13 +36,29 @@
     "@durumim-ui/eslint": "*",
     "@durumim-ui/tokens": "*",
     "@durumim-ui/ts-config": "*",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vitest/ui": "^0.30.1",
+    "jsdom": "^21.1.1",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tsup": "^6.7.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.3.1",
+    "vitest": "^0.30.1"
   },
   "dependencies": {
     "@stitches/react": "^1.2.8"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@types/testing-library__jest-dom@5.14.5": "patches/@types__testing-library__jest-dom@5.14.5.patch"
+    }
   }
 }
