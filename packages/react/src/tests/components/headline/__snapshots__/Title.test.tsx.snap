@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Headline /> > should render correctly 1`] = `
+exports[`<Title /> > should render correctly 1`] = `
 <h2
   class="c-eDCyBI c-eDCyBI-kupvTz-size-md"
-  data-testid="headline"
+  data-testid="title"
 >
   Deixa eu dançar, pro meu corpo ficar odara
 </h2>
