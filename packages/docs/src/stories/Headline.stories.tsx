@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Headline, HeadlineProps } from "@durumim-ui/react";
+import { Title as Headline, TitleProps } from "@durumim-ui/react";
 
 export default {
   title: "Typography/Headline",
@@ -9,20 +9,20 @@ export default {
   args: {
     children: "Nature.",
   },
-} as Meta<HeadlineProps>;
+} as Meta<TitleProps>;
 
-export const Default: StoryObj<HeadlineProps> = {
+export const Title: StoryObj<TitleProps> = {
   parameters: {
     docs: {
       description: {
         story:
-          "The `Headline` component has been configured to use the `h2` tag by default, as usually only one `h1` is needed per page. If it is necessary to use the `h1`, it is possible to make the change using the `as` property.",
+          "The `Title` component has been configured to use the `h2` tag by default, as usually only one `h1` is needed per page. If it is necessary to use the `h1`, it is possible to make the change using the `as` property.",
       },
     },
   },
 };
 
-export const Headline1: StoryObj<HeadlineProps> = {
+export const Headline1: StoryObj<TitleProps> = {
   args: {
     children: "Headline 1",
     as: "h1",
@@ -38,7 +38,7 @@ export const Headline1: StoryObj<HeadlineProps> = {
   },
 };
 
-export const Headline2: StoryObj<HeadlineProps> = {
+export const Headline2: StoryObj<TitleProps> = {
   args: {
     children: "Headline 2",
     size: "xl",
@@ -53,7 +53,7 @@ export const Headline2: StoryObj<HeadlineProps> = {
   },
 };
 
-export const Headline3: StoryObj<HeadlineProps> = {
+export const Headline3: StoryObj<TitleProps> = {
   args: {
     children: "Headline 3",
     size: "lg",
@@ -68,7 +68,7 @@ export const Headline3: StoryObj<HeadlineProps> = {
   },
 };
 
-export const Headline4: StoryObj<HeadlineProps> = {
+export const Headline4: StoryObj<TitleProps> = {
   args: {
     children: "Headline 4",
     size: "md",
@@ -83,7 +83,7 @@ export const Headline4: StoryObj<HeadlineProps> = {
   },
 };
 
-export const Headline5: StoryObj<HeadlineProps> = {
+export const Headline5: StoryObj<TitleProps> = {
   args: {
     children: "Headline 5",
     size: "sm",
