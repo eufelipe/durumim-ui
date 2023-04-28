@@ -1,11 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { Headline } from "@/components/headline/Headline";
-import { render, screen } from "@/tests/utils/test-utils";
+import { Headline } from "@/components/headline";
+import { render, screen } from "@/tests/utils";
 
 describe("<Headline />", () => {
   beforeEach(() => {
-    render(<Headline>Deixa eu dançar, pro meu corpo ficar odara</Headline>);
+    render(
+      <Headline data-testid="headline">
+        Deixa eu dançar, pro meu corpo ficar odara
+      </Headline>
+    );
   });
 
   it("should render the text correctly as expected", () => {
@@ -34,5 +38,9 @@ describe("<Headline />", () => {
     ).toHaveStyle({
       "font-size": "1.5em",
     });
+  });
+
+  it("should render correctly", () => {
+    expect(screen.getByTestId("headline")).toMatchSnapshot();
   });
 });
