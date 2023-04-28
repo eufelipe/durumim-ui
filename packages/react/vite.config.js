@@ -21,6 +21,7 @@ export default defineConfig({
         ...configDefaults.exclude,
         "src/tests/utils/**",
         "src/styles/index.ts",
+        "src/tests",
       ],
     },
   },
