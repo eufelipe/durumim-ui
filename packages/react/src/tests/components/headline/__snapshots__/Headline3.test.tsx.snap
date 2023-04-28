@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Headline3 /> > should render correctly 1`] = `
+<h3
+  class="c-iysNtL"
+  data-testid="headline3"
+>
+  Agora eu era o herói
+</h3>
+`;
