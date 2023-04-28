@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Headline4 /> > should render correctly 1`] = `
+<h4
+  class="c-eKPdLd"
+  data-testid="headline4"
+>
+  Ainda é cedo, amor
+</h4>
+`;
