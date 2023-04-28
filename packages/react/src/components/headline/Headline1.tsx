@@ -1,8 +1,8 @@
 import { ComponentProps, ElementType } from "react";
 
-import { styled } from "@/styles";
+import { css, styled } from "@/styles";
 
-export const Headline1 = styled("h1", {
+const styles = css({
   fontFamily: "$default",
   fontWeight: "$regular",
   lineHeight: "$shorter",
@@ -10,6 +10,8 @@ export const Headline1 = styled("h1", {
   margin: 0,
   size: "5xl",
 });
+
+export const Headline1 = styled("h1", styles);
 
 export interface Headline1Props extends ComponentProps<typeof Headline1> {
   as?: ElementType;

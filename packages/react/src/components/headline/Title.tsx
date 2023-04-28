@@ -1,8 +1,8 @@
 import { ComponentProps, ElementType } from "react";
 
-import { styled } from "@/styles";
+import { css, styled } from "@/styles";
 
-export const Title = styled("h2", {
+const styles = css({
   fontFamily: "$default",
   lineHeight: "$shorter",
   color: "$gray100",
@@ -22,6 +22,8 @@ export const Title = styled("h2", {
     size: "md",
   },
 });
+
+export const Title = styled("h2", styles);
 
 export interface TitleProps extends ComponentProps<typeof Title> {
   as?: ElementType;
