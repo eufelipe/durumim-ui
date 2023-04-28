@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Headline5 /> > should render correctly 1`] = `
+<h5
+  class="c-jfGGjo"
+  data-testid="headline5"
+>
+  Tomo guaraná, suco de caju
+</h5>
+`;
