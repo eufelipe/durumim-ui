@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Paragraph /> > should render correctly 1`] = `
+<p
+  class="c-gAAded"
+  data-testid="paragraph"
+>
+  Terra, terra... Por mais distante, o errante navegante
+</p>
+`;
