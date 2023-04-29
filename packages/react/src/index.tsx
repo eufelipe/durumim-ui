@@ -1,2 +1,2 @@
-export * from "./components/headline";
+export * from "./components";
 export * from "./styles";
