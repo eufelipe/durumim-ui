@@ -1,6 +1,9 @@
 import { createStitches, defaultThemeMap } from "@stitches/react";
 
+import type { CSS } from "@stitches/react";
+
 import { colors } from "@durumim-ui/colors";
+
 import {
   breakpoints,
   fontSizes,
@@ -16,20 +19,12 @@ import {
   zIndices,
 } from "@durumim-ui/tokens";
 
-export const {
-  styled,
-  css,
-  globalCss,
-  keyframes,
-  getCssText,
-  theme,
-  createTheme,
-  config,
-} = createStitches({
+const stitches = createStitches({
   themeMap: {
     ...defaultThemeMap,
     height: "space",
     width: "space",
+    opacity: "opacity",
   },
 
   theme: {
@@ -48,3 +43,17 @@ export const {
     breakpoints,
   },
 });
+
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = stitches;
+
+export type StitchesInstance = typeof stitches;
+export type CSSProps = CSS<StitchesInstance>;
