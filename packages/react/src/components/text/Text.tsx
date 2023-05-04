@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType } from "react";
+import { ElementType } from "react";
 
-import { css, styled } from "@/styles";
+import { CSSProps, css, styled } from "@durumim-ui/core";
 
 const styles = css({
   fontFamily: "$default",
@@ -31,10 +31,13 @@ const styles = css({
   },
 });
 
-export const Text = styled("p", styles);
+const TextComponent = styled("p", styles);
 
-export interface TextProps extends ComponentProps<typeof Text> {
+export interface TextProps extends CSSProps {
   as?: ElementType;
 }
+export const Text: React.FC<TextProps> = ({ as, ...props }) => {
+  return <TextComponent as={as} {...props} />;
+};
 
 Text.displayName = "Text";

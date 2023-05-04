@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType } from "react";
+import { ElementType } from "react";
 
-import { css, styled } from "@/styles";
+import { CSSProps, css, styled } from "@durumim-ui/core";
 
 const styles = css({
   fontFamily: "$default",
@@ -11,10 +11,13 @@ const styles = css({
   size: "3xl",
 });
 
-export const Headline4 = styled("h4", styles);
+const Headline4Component = styled("h4", styles);
 
-export interface Headline4Props extends ComponentProps<typeof Headline4> {
+export interface Headline4Props extends CSSProps {
   as?: ElementType;
 }
+export const Headline4: React.FC<Headline4Props> = ({ as, ...props }) => {
+  return <Headline4Component as={as} {...props} />;
+};
 
 Headline4.displayName = "Headline4";

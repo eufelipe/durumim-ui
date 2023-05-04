@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType } from "react";
+import { ElementType } from "react";
 
-import { css, styled } from "@/styles";
+import { CSSProps, css, styled } from "@durumim-ui/core";
 
 const styles = css({
   fontFamily: "$default",
@@ -23,10 +23,13 @@ const styles = css({
   },
 });
 
-export const Title = styled("h2", styles);
+const TitleComponent = styled("h2", styles);
 
-export interface TitleProps extends ComponentProps<typeof Title> {
+export interface TitleProps extends CSSProps {
   as?: ElementType;
 }
+export const Title: React.FC<TitleProps> = ({ as, ...props }) => {
+  return <TitleComponent as={as} {...props} />;
+};
 
 Title.displayName = "Title";

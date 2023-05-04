@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType } from "react";
+import { ElementType } from "react";
 
-import { css, styled } from "@/styles";
+import { CSSProps, css, styled } from "@durumim-ui/core";
 
 const styles = css({
   fontFamily: "$default",
@@ -10,11 +10,16 @@ const styles = css({
   color: "$gray100",
 });
 
-export const LeadParagraph = styled("h6", styles);
+const LeadParagraphComponent = styled("p", styles);
 
-export interface LeadParagraphProps
-  extends ComponentProps<typeof LeadParagraph> {
+export interface LeadParagraphProps extends CSSProps {
   as?: ElementType;
 }
+export const LeadParagraph: React.FC<LeadParagraphProps> = ({
+  as,
+  ...props
+}) => {
+  return <LeadParagraphComponent as={as} {...props} />;
+};
 
 LeadParagraph.displayName = "LeadParagraph";

@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType } from "react";
+import { ElementType } from "react";
 
-import { css, styled } from "@/styles";
+import { CSSProps, css, styled } from "@durumim-ui/core";
 
 const styles = css({
   fontFamily: "$default",
@@ -10,10 +10,13 @@ const styles = css({
   color: "$gray100",
 });
 
-export const Paragraph = styled("p", styles);
+const ParagraphComponent = styled("p", styles);
 
-export interface ParagraphProps extends ComponentProps<typeof Paragraph> {
+export interface ParagraphProps extends CSSProps {
   as?: ElementType;
 }
+export const Paragraph: React.FC<ParagraphProps> = ({ as, ...props }) => {
+  return <ParagraphComponent as={as} {...props} />;
+};
 
 Paragraph.displayName = "Paragraph";
