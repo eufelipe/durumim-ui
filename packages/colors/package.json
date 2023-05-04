@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build:tokens": "style-dictionary build",
-    "build:tsup": "tsup src/index.ts --format esm,cjs --dts",
+    "build:tsup": "tsup",
     "build:tsup:dev": "tsup src/index.ts --watch --format esm,cjs --dts",
     "build": "npm run build:tokens && npm run build:tsup",
     "dev": "npm run build:tokens && npm run build:tsup:dev",
