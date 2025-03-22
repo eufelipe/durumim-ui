@@ -1,4 +1,4 @@
-import { colors } from "@durumim-ui/colors";
+import { colors } from "@durumim-ui/design-tokens";
 import { getContrast } from "polished";
 
 type Color = {
