@@ -1,5 +1,5 @@
 {
-  "name": "@durumim-ui/tokens",
+  "name": "@durumim-ui/design-tokens",
   "version": "0.1.0",
   "description": "The @durumim-ui/tokens package contains the tokens definitions used by durumim UI. These tokens include, typography, spacing, and other design properties.",
   "main": "./dist/index.js",
