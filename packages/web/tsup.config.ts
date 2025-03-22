@@ -2,7 +2,7 @@ import type { Options } from "tsup";
 import { defineConfig } from "tsup";
 
 const config: Options = {
-  entry: ["src/index.tsx"],
+  entry: ["src/index.ts"],
   splitting: false,
   sourcemap: false,
   clean: true,

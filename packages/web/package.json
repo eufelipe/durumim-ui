@@ -1,0 +1,31 @@
+{
+  "name": "@durumim-ui/web",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup src/index.ts --watch --format esm,cjs --dts"
+  },
+  "author": "Felipe Rosas (https://eufelipe.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^19.0.12",
+    "react": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@durumim-ui/design-tokens": "workspace:*",
+    "@durumim-ui/eslint": "workspace:*",
+    "@durumim-ui/styles": "workspace:*",
+    "@durumim-ui/ts-config": "workspace:*",
+    "@tamagui/core": "^1.125.26",
+    "@tamagui/lucide-icons": "^1.125.26",
+    "tamagui": "^1.125.26"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}
