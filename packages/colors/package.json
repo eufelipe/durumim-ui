@@ -27,8 +27,8 @@
   "author": "Felipe Rosas (https://eufelipe.com)",
   "license": "MIT",
   "devDependencies": {
-    "@durumim-ui/eslint": "*",
-    "@durumim-ui/ts-config": "*",
+    "@durumim-ui/eslint": "workspace:*",
+    "@durumim-ui/ts-config": "workspace:*",
     "style-dictionary": "^3.8.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4"

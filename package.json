@@ -23,11 +23,11 @@
     "durumim"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^17.6.1",
-    "@commitlint/config-conventional": "^17.6.1",
-    "cspell": "^6.31.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "turbo": "^1.9.3"
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^17.8.1",
+    "cspell": "^6.31.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^13.3.0",
+    "turbo": "^1.13.4"
   }
 }

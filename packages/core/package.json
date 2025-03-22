@@ -11,16 +11,16 @@
   "author": "Felipe Rosas (https://eufelipe.com)",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.2.2",
-    "react": "^18.2.0",
-    "tsup": "^6.7.0",
-    "typescript": "^5.0.4"
+    "@types/react": "^19.0.12",
+    "react": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@durumim-ui/colors": "*",
-    "@durumim-ui/eslint": "*",
-    "@durumim-ui/tokens": "*",
-    "@durumim-ui/ts-config": "*",
+    "@durumim-ui/colors": "workspace:*",
+    "@durumim-ui/eslint": "workspace:*",
+    "@durumim-ui/tokens": "workspace:*",
+    "@durumim-ui/ts-config": "workspace:*",
     "@stitches/react": "^1.2.8"
   }
 }
