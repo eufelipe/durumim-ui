@@ -1,0 +1,30 @@
+/** @type { import('@storybook/react-vite').StorybookConfig } */
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+
+const config = {
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'
+  ],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-themes'
+  ],
+  framework: {
+    name: '@storybook/react-vite',
+    options: {}
+  },
+  docs: {
+    autodocs: false,
+  },
+  async viteFinal(config, { configType }) {
+    config.plugins = config.plugins || [];
+    config.plugins.push(vanillaExtractPlugin());
+
+    return config;
+  },
+};
+
+export default config;
