@@ -1,0 +1,12 @@
+{
+  "extends": "@durumim-ui/ts-config/base.json",
+  "compilerOptions": {
+    "preserveSymlinks": true,
+    "resolveJsonModule": false,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["src"],
+  "exclude": ["dist", ".turbo", "node_modules"]
+}
