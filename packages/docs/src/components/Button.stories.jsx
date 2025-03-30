@@ -37,6 +37,10 @@ const meta = {
     iconOnly: {
       control: 'boolean',
     },
+    full: {
+      control: 'boolean',
+      description: 'Whether the button should take up the full width of its container',
+    },
   },
 };
 
@@ -64,6 +68,7 @@ export const Default = {
     variant: 'solid',
     icon: false,
     iconPosition: 'left',
+    full: true,
   },
   render: (args) => (
     <Button {...args} {...getIconProps(args)}>
@@ -152,6 +157,15 @@ export const AllVariations = {
         </Row>
       </Section>
       
+      <Section title="Full Width" titleStyle={headingStyle}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <Button full>Full Width Button</Button>
+          <Button full size="small">Small Full Width</Button>
+          <Button full size="large" variant="outlined">Large Outlined Full Width</Button>
+          <Button full semanticColor="success" icon>Success with Icon Full Width</Button>
+        </div>
+      </Section>
+      
       <Section title="Disabled State" titleStyle={headingStyle}>
         <Row>
           <Button disabled>Solid Disabled</Button>
@@ -173,6 +187,7 @@ export const Playground = {
     icon: false,
     iconPosition: 'left',
     iconOnly: false,
+    full: false,
   },
   render: (args) => {
     if (args.iconOnly && args.icon) {
@@ -180,9 +195,11 @@ export const Playground = {
     }
     
     return (
-      <Button {...args} {...getIconProps(args)}>
-        {args.children}
-      </Button>
+      <div style={{ width: args.full ? '100%' : 'auto' }}>
+        <Button {...args} {...getIconProps(args)}>
+          {args.children}
+        </Button>
+      </div>
     );
   },
 };

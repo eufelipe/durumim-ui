@@ -6,6 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   children?: React.ReactNode;
+  full?: boolean;
 }
 
 export interface IconProps {
@@ -13,10 +14,10 @@ export interface IconProps {
   color?: string;
   semanticColor?: 'success' | 'danger' | 'warning' | 'info';
   position?: 'left' | 'right';
+  iconOnly?: boolean;
   children?: React.ReactNode;
 }
 
-// Mapa de ícones para cores semânticas
 const iconsMap = {
   success: CheckCircle,
   danger: AlertCircle,
@@ -25,27 +26,32 @@ const iconsMap = {
   default: ChevronRight,
 };
 
-// Componente de ícone
 const Icon = ({ 
   size = 20, 
   position = 'left', 
   semanticColor, 
+  iconOnly = false,
   children,
   ...props 
 }: IconProps) => {
   const IconComponent = semanticColor ? iconsMap[semanticColor] : iconsMap.default;
-  const hasChildren = Boolean(children);
   
   const iconSize = size;
   
   return (
-    <span className={iconWrapperRecipe({ position, iconOnly: !hasChildren })}>
+    <span className={iconWrapperRecipe({ position, iconOnly })}>
       <IconComponent size={iconSize} {...props} />
     </span>
   );
 };
 
-// Componente de botão principal
+interface ButtonComponent
+  extends React.ForwardRefExoticComponent<
+    ButtonProps & React.RefAttributes<HTMLButtonElement>
+  > {
+  Icon: React.FC<IconProps>;
+}
+
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ 
     children, 
@@ -54,21 +60,24 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     variant = 'solid',
     semanticColor,
     disabled = false,
-    iconOnly = false,
+    iconOnly: iconOnlyProp,
     icon,
     iconPosition = 'left',
+    full = false,
     ...props
   }, ref) => {
-    // Calcular as classes CSS usando a receita
+    const hasChildren = Boolean(children);
+    const iconOnly = iconOnlyProp ?? (Boolean(icon) && !hasChildren);
+    
     const buttonClass = buttonRecipe({ 
       size, 
       variant, 
       semanticColor, 
       disabled, 
       iconOnly,
+      full,
     });
     
-    // Combinar com classes customizadas
     const combinedClassName = className 
       ? `${buttonClass} ${className}`
       : buttonClass;
@@ -81,21 +90,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {icon && iconPosition === 'left' && (
-          <Icon position="left" semanticColor={semanticColor}>{icon}</Icon>
+          <Icon position="left" semanticColor={semanticColor} iconOnly={iconOnly}>{icon}</Icon>
         )}
         {children}
         {icon && iconPosition === 'right' && (
-          <Icon position="right" semanticColor={semanticColor}>{icon}</Icon>
+          <Icon position="right" semanticColor={semanticColor} iconOnly={iconOnly}>{icon}</Icon>
         )}
       </button>
     );
   }
-);
+) as ButtonComponent;
 
-// Adicionar propriedade estática Icon ao componente Button
 Button.displayName = 'Button';
-
-// Estender o componente Button com o subcomponente Icon
-Object.assign(Button, { Icon });
+Button.Icon = Icon;
 
 export default Button;

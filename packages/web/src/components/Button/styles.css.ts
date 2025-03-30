@@ -70,6 +70,12 @@ const sizeVariants = {
   }),
 };
 
+// Estilo para botão de largura total
+const fullWidthStyle = style({
+  width: '100%',
+  display: 'flex',
+});
+
 // Variantes de estilo (solid, outlined, ghost)
 const styleVariantStyles = {
   solid: {
@@ -252,11 +258,30 @@ const disabledStyle = style({
 // Estilo para botões apenas com ícone
 const iconOnlyStyle = style({
   aspectRatio: '1 / 1',
-  padding: space[3],
+  padding: space[2],
   borderRadius: radii.md,
   justifyContent: 'center',
   alignItems: 'center',
+  minWidth: 'auto',
+  paddingLeft: space[2],
+  paddingRight: space[2],
 });
+
+// Variantes de tamanho para botões apenas com ícone
+const iconOnlySizeVariants = {
+  small: style({
+    width: '32px',
+    height: '32px',
+  }),
+  medium: style({
+    width: '40px',
+    height: '40px',
+  }),
+  large: style({
+    width: '48px',
+    height: '48px',
+  }),
+};
 
 // Estilos para o wrapper do ícone
 const iconWrapperBaseStyle = style({
@@ -299,6 +324,9 @@ export const buttonRecipe = recipe({
     },
     iconOnly: {
       true: iconOnlyStyle,
+    },
+    full: {
+      true: fullWidthStyle,
     }
   },
   compoundVariants: [
@@ -322,6 +350,11 @@ export const buttonRecipe = recipe({
     { variants: { variant: 'ghost', semanticColor: 'danger' }, style: styleVariantStyles.ghost.danger },
     { variants: { variant: 'ghost', semanticColor: 'warning' }, style: styleVariantStyles.ghost.warning },
     { variants: { variant: 'ghost', semanticColor: 'info' }, style: styleVariantStyles.ghost.info },
+    
+    // Icon only size variants
+    { variants: { iconOnly: true, size: 'small' }, style: iconOnlySizeVariants.small },
+    { variants: { iconOnly: true, size: 'medium' }, style: iconOnlySizeVariants.medium },
+    { variants: { iconOnly: true, size: 'large' }, style: iconOnlySizeVariants.large },
   ],
   defaultVariants: {
     size: 'medium',
