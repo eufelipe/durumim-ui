@@ -1,5 +1,5 @@
 import React from 'react';
-import { buttonRecipe, iconWrapperRecipe, ButtonVariants, IconWrapperVariants } from './styles.css';
+import { buttonRecipe, iconWrapperRecipe, ButtonVariants } from './styles.css';
 import { CheckCircle, AlertCircle, AlertTriangle, Info, ChevronRight } from './Icons';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariants {
@@ -26,18 +26,18 @@ const iconsMap = {
   default: ChevronRight,
 };
 
-const Icon = ({ 
-  size = 20, 
-  position = 'left', 
-  semanticColor, 
+const Icon = ({
+  size = 20,
+  position = 'left',
+  semanticColor,
   iconOnly = false,
   children,
-  ...props 
+  ...props
 }: IconProps) => {
   const IconComponent = semanticColor ? iconsMap[semanticColor] : iconsMap.default;
-  
+
   const iconSize = size;
-  
+
   return (
     <span className={iconWrapperRecipe({ position, iconOnly })}>
       <IconComponent size={iconSize} {...props} />
@@ -53,8 +53,8 @@ interface ButtonComponent
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ 
-    children, 
+  ({
+    children,
     className,
     size = 'medium',
     variant = 'solid',
@@ -68,22 +68,22 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }, ref) => {
     const hasChildren = Boolean(children);
     const iconOnly = iconOnlyProp ?? (Boolean(icon) && !hasChildren);
-    
-    const buttonClass = buttonRecipe({ 
-      size, 
-      variant, 
-      semanticColor, 
-      disabled, 
+
+    const buttonClass = buttonRecipe({
+      size,
+      variant,
+      semanticColor,
+      disabled,
       iconOnly,
       full,
     });
-    
-    const combinedClassName = className 
+
+    const combinedClassName = className
       ? `${buttonClass} ${className}`
       : buttonClass;
 
     return (
-      <button 
+      <button
         ref={ref}
         disabled={disabled}
         className={combinedClassName}
