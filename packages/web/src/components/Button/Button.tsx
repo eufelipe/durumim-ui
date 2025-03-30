@@ -2,17 +2,21 @@ import React from 'react';
 import { buttonRecipe, iconWrapperRecipe, ButtonVariants } from './styles.css';
 import { CheckCircle, AlertCircle, AlertTriangle, Info, ChevronRight } from './Icons';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariants {
+type ButtonBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>;
+
+export interface ButtonProps extends ButtonBaseProps, ButtonVariants {
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   children?: React.ReactNode;
-  full?: boolean;
+  fullWidth?: boolean;
 }
+
+export type SemanticColorType = 'default' | 'success' | 'danger' | 'warning' | 'info';
 
 export interface IconProps {
   size?: number;
   color?: string;
-  semanticColor?: 'success' | 'danger' | 'warning' | 'info';
+  semanticColor?: SemanticColorType;
   position?: 'left' | 'right';
   iconOnly?: boolean;
   children?: React.ReactNode;
@@ -39,7 +43,7 @@ const Icon = ({
   const iconSize = size;
 
   return (
-    <span className={iconWrapperRecipe({ position, iconOnly })}>
+    <span className={iconWrapperRecipe({ position })}>
       <IconComponent size={iconSize} {...props} />
     </span>
   );
@@ -58,12 +62,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     className,
     size = 'medium',
     variant = 'solid',
-    semanticColor,
+    color = 'default',
     disabled = false,
     iconOnly: iconOnlyProp,
     icon,
     iconPosition = 'left',
-    full = false,
+    fullWidth = false,
     ...props
   }, ref) => {
     const hasChildren = Boolean(children);
@@ -72,10 +76,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonClass = buttonRecipe({
       size,
       variant,
-      semanticColor,
+      color,
       disabled,
       iconOnly,
-      full,
+      fullWidth,
     });
 
     const combinedClassName = className
@@ -90,11 +94,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {icon && iconPosition === 'left' && (
-          <Icon position="left" semanticColor={semanticColor} iconOnly={iconOnly}>{icon}</Icon>
+          <Icon position="left" semanticColor={color as SemanticColorType} iconOnly={iconOnly}>{icon}</Icon>
         )}
         {children}
         {icon && iconPosition === 'right' && (
-          <Icon position="right" semanticColor={semanticColor} iconOnly={iconOnly}>{icon}</Icon>
+          <Icon position="right" semanticColor={color as SemanticColorType} iconOnly={iconOnly}>{icon}</Icon>
         )}
       </button>
     );

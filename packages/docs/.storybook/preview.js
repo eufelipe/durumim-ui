@@ -2,14 +2,12 @@
 import { fonts } from '@durumim-ui/design-tokens';
 import { themes } from '@storybook/theming';
 
-// Definir as fontes do design system
 const fontMappings = {
   'default': 'Inter, sans-serif',
   'heading': 'Poppins, sans-serif',
   'mono': 'Roboto Mono, monospace'
 };
 
-// Atualizar os tokens de fonte para usar as novas fontes
 Object.keys(fonts).forEach(key => {
   fonts[key] = fontMappings[key] || fonts[key];
 });

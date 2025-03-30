@@ -1,8 +1,8 @@
-import { style, styleVariants, createVar } from '@vanilla-extract/css';
+import { style, createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { colors, radii, space, fontSizes } from '@durumim-ui/design-tokens';
-import { getSemanticStyles, buttonScales, buttonSpecs, iconConfig, interactionStates } from '@durumim-ui/core';
 
+// Definir variáveis de CSS
 const buttonBackgroundColor = createVar();
 const buttonTextColor = createVar();
 const buttonBorderColor = createVar();
@@ -10,7 +10,7 @@ const buttonHoverBackgroundColor = createVar();
 const buttonHoverTextColor = createVar();
 const buttonHoverBorderColor = createVar();
 
-
+// Estilos base do botão
 const baseButtonStyle = style({
   display: 'inline-flex',
   alignItems: 'center',
@@ -29,18 +29,19 @@ const baseButtonStyle = style({
   backgroundColor: buttonBackgroundColor,
   color: buttonTextColor,
   borderColor: buttonBorderColor,
-  
+
   ':hover': {
     backgroundColor: buttonHoverBackgroundColor,
     color: buttonHoverTextColor,
     borderColor: buttonHoverBorderColor,
   },
-  
+
   ':focus': {
     boxShadow: '0 0 0 3px rgba(31, 109, 140, 0.3)',
   },
 });
 
+// Variantes de tamanho
 const sizeVariants = {
   small: style({
     fontSize: fontSizes.xs,
@@ -68,11 +69,19 @@ const sizeVariants = {
   }),
 };
 
-
+// Estilo para botões de largura completa
 const fullWidthStyle = style({
   width: '100%',
   display: 'flex',
 });
+
+// Cores semânticas para diferentes tipos de botões
+const semanticColors = {
+  success: colors.success,
+  danger: colors.danger,
+  warning: colors.warning,
+  info: colors.info
+};
 
 // Variantes de estilo (solid, outlined, ghost)
 const styleVariantStyles = {
@@ -89,41 +98,41 @@ const styleVariantStyles = {
     }),
     success: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('solid', 'success').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('solid', 'success').color,
-        [buttonBorderColor]: getSemanticStyles('solid', 'success').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('solid', 'success').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('solid', 'success').hoverColor,
+        [buttonBackgroundColor]: semanticColors.success,
+        [buttonTextColor]: colors.white,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: colors.green[700],
+        [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     danger: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('solid', 'danger').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('solid', 'danger').color,
-        [buttonBorderColor]: getSemanticStyles('solid', 'danger').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('solid', 'danger').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('solid', 'danger').hoverColor,
+        [buttonBackgroundColor]: semanticColors.danger,
+        [buttonTextColor]: colors.white,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: colors.red[700],
+        [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     warning: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('solid', 'warning').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('solid', 'warning').color,
-        [buttonBorderColor]: getSemanticStyles('solid', 'warning').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('solid', 'warning').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('solid', 'warning').hoverColor,
+        [buttonBackgroundColor]: semanticColors.warning,
+        [buttonTextColor]: colors.white,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: colors.orange[700],
+        [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     info: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('solid', 'info').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('solid', 'info').color,
-        [buttonBorderColor]: getSemanticStyles('solid', 'info').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('solid', 'info').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('solid', 'info').hoverColor,
+        [buttonBackgroundColor]: semanticColors.info,
+        [buttonTextColor]: colors.white,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: colors.blue[600],
+        [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
@@ -141,42 +150,42 @@ const styleVariantStyles = {
     }),
     success: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('outlined', 'success').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('outlined', 'success').color,
-        [buttonBorderColor]: getSemanticStyles('outlined', 'success').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('outlined', 'success').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('outlined', 'success').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('outlined', 'success').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.success,
+        [buttonBorderColor]: semanticColors.success,
+        [buttonHoverBackgroundColor]: 'rgba(72, 187, 120, 0.1)',
+        [buttonHoverTextColor]: colors.green[700],
+        [buttonHoverBorderColor]: colors.green[700],
       },
     }),
     danger: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('outlined', 'danger').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('outlined', 'danger').color,
-        [buttonBorderColor]: getSemanticStyles('outlined', 'danger').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('outlined', 'danger').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('outlined', 'danger').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('outlined', 'danger').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.danger,
+        [buttonBorderColor]: semanticColors.danger,
+        [buttonHoverBackgroundColor]: 'rgba(245, 101, 101, 0.1)',
+        [buttonHoverTextColor]: colors.red[700],
+        [buttonHoverBorderColor]: colors.red[700],
       },
     }),
     warning: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('outlined', 'warning').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('outlined', 'warning').color,
-        [buttonBorderColor]: getSemanticStyles('outlined', 'warning').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('outlined', 'warning').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('outlined', 'warning').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('outlined', 'warning').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.warning,
+        [buttonBorderColor]: semanticColors.warning,
+        [buttonHoverBackgroundColor]: 'rgba(246, 173, 85, 0.1)',
+        [buttonHoverTextColor]: colors.orange[700],
+        [buttonHoverBorderColor]: colors.orange[700],
       },
     }),
     info: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('outlined', 'info').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('outlined', 'info').color,
-        [buttonBorderColor]: getSemanticStyles('outlined', 'info').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('outlined', 'info').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('outlined', 'info').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('outlined', 'info').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.info,
+        [buttonBorderColor]: semanticColors.info,
+        [buttonHoverBackgroundColor]: 'rgba(66, 153, 225, 0.1)',
+        [buttonHoverTextColor]: colors.blue[600],
+        [buttonHoverBorderColor]: colors.blue[600],
       },
     }),
   },
@@ -193,173 +202,148 @@ const styleVariantStyles = {
     }),
     success: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('ghost', 'success').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('ghost', 'success').color,
-        [buttonBorderColor]: getSemanticStyles('ghost', 'success').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('ghost', 'success').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('ghost', 'success').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('ghost', 'success').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.success,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: 'rgba(72, 187, 120, 0.1)',
+        [buttonHoverTextColor]: colors.green[700],
+        [buttonHoverBorderColor]: 'transparent',
       },
     }),
     danger: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('ghost', 'danger').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('ghost', 'danger').color,
-        [buttonBorderColor]: getSemanticStyles('ghost', 'danger').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('ghost', 'danger').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('ghost', 'danger').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('ghost', 'danger').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.danger,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: 'rgba(245, 101, 101, 0.1)',
+        [buttonHoverTextColor]: colors.red[700],
+        [buttonHoverBorderColor]: 'transparent',
       },
     }),
     warning: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('ghost', 'warning').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('ghost', 'warning').color,
-        [buttonBorderColor]: getSemanticStyles('ghost', 'warning').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('ghost', 'warning').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('ghost', 'warning').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('ghost', 'warning').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.warning,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: 'rgba(246, 173, 85, 0.1)',
+        [buttonHoverTextColor]: colors.orange[700],
+        [buttonHoverBorderColor]: 'transparent',
       },
     }),
     info: style({
       vars: {
-        [buttonBackgroundColor]: getSemanticStyles('ghost', 'info').backgroundColor,
-        [buttonTextColor]: getSemanticStyles('ghost', 'info').color,
-        [buttonBorderColor]: getSemanticStyles('ghost', 'info').borderColor,
-        [buttonHoverBackgroundColor]: getSemanticStyles('ghost', 'info').hoverBackgroundColor,
-        [buttonHoverTextColor]: getSemanticStyles('ghost', 'info').hoverColor,
-        [buttonHoverBorderColor]: getSemanticStyles('ghost', 'info').borderColor,
+        [buttonBackgroundColor]: 'transparent',
+        [buttonTextColor]: semanticColors.info,
+        [buttonBorderColor]: 'transparent',
+        [buttonHoverBackgroundColor]: 'rgba(66, 153, 225, 0.1)',
+        [buttonHoverTextColor]: colors.blue[600],
+        [buttonHoverBorderColor]: 'transparent',
       },
     }),
   },
 };
 
+// Estilo para botões desativados
 const disabledStyle = style({
   cursor: 'not-allowed',
   opacity: 0.6,
   pointerEvents: 'none',
-  
+
   ':hover': {
     opacity: 0.6,
   },
 });
 
-
+// Estilo para botões apenas com ícone
 const iconOnlyStyle = style({
   aspectRatio: '1 / 1',
   padding: space[2],
-  borderRadius: radii.md,
-  justifyContent: 'center',
-  alignItems: 'center',
-  minWidth: 'auto',
-  paddingLeft: space[2],
-  paddingRight: space[2],
 });
 
-const iconOnlySizeVariants = {
-  small: style({
-    width: '32px',
-    height: '32px',
-  }),
-  medium: style({
-    width: '40px',
-    height: '40px',
-  }),
-  large: style({
-    width: '48px',
-    height: '48px',
-  }),
-};
-
-
-const iconWrapperBaseStyle = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-const iconWrapperPositionVariants = styleVariants({
-  left: {
-    marginRight: space[2],
-  },
-  right: {
-    marginLeft: space[2],
-  },
-});
-
-const iconOnlyWrapperStyle = style({
-  margin: 0,
-});
 
 export const buttonRecipe = recipe({
   base: baseButtonStyle,
   variants: {
     size: sizeVariants,
     variant: {
-      solid: style({}),
-      outlined: style({}),
-      ghost: style({}),
+      solid: {},
+      outlined: {},
+      ghost: {},
     },
-    semanticColor: {
-      success: style({}),
-      danger: style({}),
-      warning: style({}),
-      info: style({}),
+    color: {
+      default: {},
+      success: {},
+      danger: {},
+      warning: {},
+      info: {},
     },
     disabled: {
       true: disabledStyle,
     },
+    fullWidth: {
+      true: fullWidthStyle,
+    },
     iconOnly: {
       true: iconOnlyStyle,
     },
-    full: {
-      true: fullWidthStyle,
-    }
   },
   compoundVariants: [
     // Solid variants
-    { variants: { variant: 'solid', semanticColor: undefined }, style: styleVariantStyles.solid.default },
-    { variants: { variant: 'solid', semanticColor: 'success' }, style: styleVariantStyles.solid.success },
-    { variants: { variant: 'solid', semanticColor: 'danger' }, style: styleVariantStyles.solid.danger },
-    { variants: { variant: 'solid', semanticColor: 'warning' }, style: styleVariantStyles.solid.warning },
-    { variants: { variant: 'solid', semanticColor: 'info' }, style: styleVariantStyles.solid.info },
-    
+    { variants: { variant: 'solid', color: 'default' }, style: styleVariantStyles.solid.default },
+    { variants: { variant: 'solid', color: 'success' }, style: styleVariantStyles.solid.success },
+    { variants: { variant: 'solid', color: 'danger' }, style: styleVariantStyles.solid.danger },
+    { variants: { variant: 'solid', color: 'warning' }, style: styleVariantStyles.solid.warning },
+    { variants: { variant: 'solid', color: 'info' }, style: styleVariantStyles.solid.info },
+
     // Outlined variants
-    { variants: { variant: 'outlined', semanticColor: undefined }, style: styleVariantStyles.outlined.default },
-    { variants: { variant: 'outlined', semanticColor: 'success' }, style: styleVariantStyles.outlined.success },
-    { variants: { variant: 'outlined', semanticColor: 'danger' }, style: styleVariantStyles.outlined.danger },
-    { variants: { variant: 'outlined', semanticColor: 'warning' }, style: styleVariantStyles.outlined.warning },
-    { variants: { variant: 'outlined', semanticColor: 'info' }, style: styleVariantStyles.outlined.info },
-    
+    { variants: { variant: 'outlined', color: 'default' }, style: styleVariantStyles.outlined.default },
+    { variants: { variant: 'outlined', color: 'success' }, style: styleVariantStyles.outlined.success },
+    { variants: { variant: 'outlined', color: 'danger' }, style: styleVariantStyles.outlined.danger },
+    { variants: { variant: 'outlined', color: 'warning' }, style: styleVariantStyles.outlined.warning },
+    { variants: { variant: 'outlined', color: 'info' }, style: styleVariantStyles.outlined.info },
+
     // Ghost variants
-    { variants: { variant: 'ghost', semanticColor: undefined }, style: styleVariantStyles.ghost.default },
-    { variants: { variant: 'ghost', semanticColor: 'success' }, style: styleVariantStyles.ghost.success },
-    { variants: { variant: 'ghost', semanticColor: 'danger' }, style: styleVariantStyles.ghost.danger },
-    { variants: { variant: 'ghost', semanticColor: 'warning' }, style: styleVariantStyles.ghost.warning },
-    { variants: { variant: 'ghost', semanticColor: 'info' }, style: styleVariantStyles.ghost.info },
-    
-    // Icon only size variants
-    { variants: { iconOnly: true, size: 'small' }, style: iconOnlySizeVariants.small },
-    { variants: { iconOnly: true, size: 'medium' }, style: iconOnlySizeVariants.medium },
-    { variants: { iconOnly: true, size: 'large' }, style: iconOnlySizeVariants.large },
+    { variants: { variant: 'ghost', color: 'default' }, style: styleVariantStyles.ghost.default },
+    { variants: { variant: 'ghost', color: 'success' }, style: styleVariantStyles.ghost.success },
+    { variants: { variant: 'ghost', color: 'danger' }, style: styleVariantStyles.ghost.danger },
+    { variants: { variant: 'ghost', color: 'warning' }, style: styleVariantStyles.ghost.warning },
+    { variants: { variant: 'ghost', color: 'info' }, style: styleVariantStyles.ghost.info },
   ],
   defaultVariants: {
-    size: 'medium',
     variant: 'solid',
-  }
+    color: 'default',
+    size: 'medium',
+    disabled: false,
+    fullWidth: false,
+    iconOnly: false,
+  },
+});
+
+const baseIconWrapperStyle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+const leftIconStyle = style({
+  marginRight: space[2],
+});
+
+const rightIconStyle = style({
+  marginLeft: space[2],
 });
 
 export const iconWrapperRecipe = recipe({
-  base: iconWrapperBaseStyle,
+  base: baseIconWrapperStyle,
   variants: {
-    position: iconWrapperPositionVariants,
-    iconOnly: {
-      true: iconOnlyWrapperStyle,
-    }
+    position: {
+      left: leftIconStyle,
+      right: rightIconStyle,
+    },
   },
   defaultVariants: {
     position: 'left',
-  }
+  },
 });
 
 export type ButtonVariants = RecipeVariants<typeof buttonRecipe>;

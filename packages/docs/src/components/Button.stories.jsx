@@ -1,6 +1,5 @@
 import { Button } from '@durumim-ui/web';
 import React from 'react';
-
 import { Row, Section } from '../ui';
 
 const meta = {
@@ -26,8 +25,8 @@ const meta = {
       control: { type: 'radio' },
       description: 'Controls the visual style - solid (primary actions), outlined (secondary actions), ghost (tertiary actions)',
     },
-    semanticColor: {
-      options: ['success', 'danger', 'warning', 'info', undefined],
+    color: {
+      options: ['default', 'success', 'danger', 'warning', 'info'],
       control: { type: 'select' },
       description: 'Applies contextual meaning through color - success (green), danger (red), warning (yellow), info (blue)',
     },
@@ -48,7 +47,7 @@ const meta = {
       control: 'boolean',
       description: 'Creates a square button with only an icon and no text',
     },
-    full: {
+    fullWidth: {
       control: 'boolean',
       description: 'Makes the button take up the full width of its container',
     },
@@ -79,7 +78,7 @@ export const Default = {
     variant: 'solid',
     icon: false,
     iconPosition: 'left',
-    full: false,
+    fullWidth: false,
   },
   render: (args) => (
     <Button {...args} {...getIconProps(args)}>
@@ -111,10 +110,10 @@ export const AllVariations = {
       
       <Section title="Semantic Colors" titleStyle={headingStyle}>
         <Row>
-          <Button semanticColor="success">Success</Button>
-          <Button semanticColor="danger">Danger</Button>
-          <Button semanticColor="warning">Warning</Button>
-          <Button semanticColor="info">Info</Button>
+          <Button color="success">Success</Button>
+          <Button color="danger">Danger</Button>
+          <Button color="warning">Warning</Button>
+          <Button color="info">Info</Button>
         </Row>
       </Section>
       
@@ -122,36 +121,36 @@ export const AllVariations = {
         <div>
           <h4 style={{ ...headingStyle, marginBottom: '8px' }}>Success</h4>
           <Row>
-            <Button variant="solid" semanticColor="success">Solid</Button>
-            <Button variant="outlined" semanticColor="success">Outlined</Button>
-            <Button variant="ghost" semanticColor="success">Ghost</Button>
+            <Button variant="solid" color="success">Solid</Button>
+            <Button variant="outlined" color="success">Outlined</Button>
+            <Button variant="ghost" color="success">Ghost</Button>
           </Row>
         </div>
         
         <div>
           <h4 style={{ ...headingStyle, marginBottom: '8px' }}>Danger</h4>
           <Row>
-            <Button variant="solid" semanticColor="danger">Solid</Button>
-            <Button variant="outlined" semanticColor="danger">Outlined</Button>
-            <Button variant="ghost" semanticColor="danger">Ghost</Button>
+            <Button variant="solid" color="danger">Solid</Button>
+            <Button variant="outlined" color="danger">Outlined</Button>
+            <Button variant="ghost" color="danger">Ghost</Button>
           </Row>
         </div>
         
         <div>
           <h4 style={{ ...headingStyle, marginBottom: '8px' }}>Warning</h4>
           <Row>
-            <Button variant="solid" semanticColor="warning">Solid</Button>
-            <Button variant="outlined" semanticColor="warning">Outlined</Button>
-            <Button variant="ghost" semanticColor="warning">Ghost</Button>
+            <Button variant="solid" color="warning">Solid</Button>
+            <Button variant="outlined" color="warning">Outlined</Button>
+            <Button variant="ghost" color="warning">Ghost</Button>
           </Row>
         </div>
         
         <div>
           <h4 style={{ ...headingStyle, marginBottom: '8px' }}>Info</h4>
           <Row>
-            <Button variant="solid" semanticColor="info">Solid</Button>
-            <Button variant="outlined" semanticColor="info">Outlined</Button>
-            <Button variant="ghost" semanticColor="info">Ghost</Button>
+            <Button variant="solid" color="info">Solid</Button>
+            <Button variant="outlined" color="info">Outlined</Button>
+            <Button variant="ghost" color="info">Ghost</Button>
           </Row>
         </div>
       </Section>
@@ -159,8 +158,8 @@ export const AllVariations = {
       <Section title="With Icons" titleStyle={headingStyle}>
         <Row>
           <Button icon>Default Icon</Button>
-          <Button icon semanticColor="success">Success Icon</Button>
-          <Button icon semanticColor="danger">Danger Icon</Button>
+          <Button icon color="success">Success Icon</Button>
+          <Button icon color="danger">Danger Icon</Button>
         </Row>
         <Row>
           <Button icon iconPosition="right">Right Icon</Button>
@@ -170,10 +169,10 @@ export const AllVariations = {
       
       <Section title="Full Width" titleStyle={headingStyle}>
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <Button full>Full Width Button</Button>
-          <Button full size="small">Small Full Width</Button>
-          <Button full size="large" variant="outlined">Large Outlined Full Width</Button>
-          <Button full semanticColor="success" icon>Success with Icon Full Width</Button>
+          <Button fullWidth>Full Width Button</Button>
+          <Button fullWidth size="small">Small Full Width</Button>
+          <Button fullWidth size="large" variant="outlined">Large Outlined Full Width</Button>
+          <Button fullWidth color="success" icon>Success with Icon Full Width</Button>
         </div>
       </Section>
       
@@ -193,12 +192,12 @@ export const Playground = {
     children: 'Interactive Button',
     size: 'medium',
     variant: 'solid',
-    semanticColor: undefined,
+    color: 'default',
     disabled: false,
     icon: false,
     iconPosition: 'left',
     iconOnly: false,
-    full: false,
+    fullWidth: false,
   },
   render: (args) => {
     if (args.iconOnly && args.icon) {
@@ -206,7 +205,7 @@ export const Playground = {
     }
     
     return (
-      <div style={{ width: args.full ? '100%' : 'auto' }}>
+      <div style={{ width: args.fullWidth ? '100%' : 'auto' }}>
         <Button {...args} {...getIconProps(args)}>
           {args.children}
         </Button>

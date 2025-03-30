@@ -10,7 +10,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@durumim-ui/web': path.resolve(__dirname, '../web/src'),
       '@durumim-ui/core': path.resolve(__dirname, '../core/src'),
       '@durumim-ui/design-tokens': path.resolve(__dirname, '../design-tokens/src'),
     },
@@ -21,4 +20,4 @@ export default defineConfig({
       localsConvention: 'camelCaseOnly'
     }
   }
-});
+}); 

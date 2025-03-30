@@ -1,5 +1,6 @@
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import path from 'path';
 
 const config = {
   stories: [
@@ -24,6 +25,14 @@ const config = {
   async viteFinal(config, { configType }) {
     config.plugins = config.plugins || [];
     config.plugins.push(vanillaExtractPlugin());
+
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@durumim-ui/web': path.resolve(__dirname, '../../web/src'),
+      '@durumim-ui/core': path.resolve(__dirname, '../../core/src'),
+      '@durumim-ui/design-tokens': path.resolve(__dirname, '../../design-tokens/src'),
+    };
 
     return config;
   },
