@@ -8,38 +8,49 @@ const meta = {
   component: Button,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'The Button component is highly customizable and can be configured through various properties to meet different interface needs.'
+      }
+    }
   },
   tags: ['autodocs'],
   argTypes: {
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
+      description: 'Defines the button size - small (compact interfaces), medium (default), large (high emphasis)',
     },
     variant: {
       options: ['solid', 'outlined', 'ghost'],
       control: { type: 'radio' },
+      description: 'Controls the visual style - solid (primary actions), outlined (secondary actions), ghost (tertiary actions)',
     },
     semanticColor: {
       options: ['success', 'danger', 'warning', 'info', undefined],
       control: { type: 'select' },
+      description: 'Applies contextual meaning through color - success (green), danger (red), warning (yellow), info (blue)',
     },
     disabled: {
       control: 'boolean',
+      description: 'Disables the button, applying reduced opacity and preventing interactions',
     },
     icon: {
       control: 'boolean',
-      description: 'Whether to show an icon',
+      description: 'Adds an icon to enhance the button label visually',
     },
     iconPosition: {
       options: ['left', 'right'],
       control: { type: 'radio' },
+      description: 'Positions the icon either left (default) or right of the text',
     },
     iconOnly: {
       control: 'boolean',
+      description: 'Creates a square button with only an icon and no text',
     },
     full: {
       control: 'boolean',
-      description: 'Whether the button should take up the full width of its container',
+      description: 'Makes the button take up the full width of its container',
     },
   },
 };
@@ -68,7 +79,7 @@ export const Default = {
     variant: 'solid',
     icon: false,
     iconPosition: 'left',
-    full: true,
+    full: false,
   },
   render: (args) => (
     <Button {...args} {...getIconProps(args)}>
