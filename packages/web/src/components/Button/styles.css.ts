@@ -2,7 +2,6 @@ import { style, styleVariants, createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { colors, radii, space, fontSizes } from '@durumim-ui/design-tokens';
 
-// Variáveis CSS personalizadas para o botão
 const buttonBackgroundColor = createVar();
 const buttonTextColor = createVar();
 const buttonBorderColor = createVar();
@@ -10,7 +9,7 @@ const buttonHoverBackgroundColor = createVar();
 const buttonHoverTextColor = createVar();
 const buttonHoverBorderColor = createVar();
 
-// Estilos base comuns para todos os botões
+
 const baseButtonStyle = style({
   display: 'inline-flex',
   alignItems: 'center',
@@ -26,7 +25,6 @@ const baseButtonStyle = style({
   position: 'relative',
   userSelect: 'none',
   textDecoration: 'none',
-  // Usar as variáveis CSS personalizadas
   backgroundColor: buttonBackgroundColor,
   color: buttonTextColor,
   borderColor: buttonBorderColor,
@@ -42,7 +40,6 @@ const baseButtonStyle = style({
   },
 });
 
-// Variantes de tamanho
 const sizeVariants = {
   small: style({
     fontSize: fontSizes.xs,
@@ -70,7 +67,7 @@ const sizeVariants = {
   }),
 };
 
-// Estilo para botão de largura total
+
 const fullWidthStyle = style({
   width: '100%',
   display: 'flex',
@@ -236,26 +233,17 @@ const styleVariantStyles = {
   },
 };
 
-// Estado desabilitado
 const disabledStyle = style({
   cursor: 'not-allowed',
-  opacity: 0.7,
-  vars: {
-    [buttonBackgroundColor]: colors.gray[100],
-    [buttonTextColor]: colors.gray[500],
-    [buttonBorderColor]: 'transparent',
-    [buttonHoverBackgroundColor]: colors.gray[100],
-    [buttonHoverTextColor]: colors.gray[500],
-    [buttonHoverBorderColor]: 'transparent',
-  },
+  opacity: 0.6,
+  pointerEvents: 'none',
+  
   ':hover': {
-    backgroundColor: colors.gray[100],
-    color: colors.gray[500],
-    borderColor: 'transparent',
+    opacity: 0.6,
   },
 });
 
-// Estilo para botões apenas com ícone
+
 const iconOnlyStyle = style({
   aspectRatio: '1 / 1',
   padding: space[2],
@@ -267,7 +255,6 @@ const iconOnlyStyle = style({
   paddingRight: space[2],
 });
 
-// Variantes de tamanho para botões apenas com ícone
 const iconOnlySizeVariants = {
   small: style({
     width: '32px',
@@ -283,7 +270,7 @@ const iconOnlySizeVariants = {
   }),
 };
 
-// Estilos para o wrapper do ícone
+
 const iconWrapperBaseStyle = style({
   display: 'flex',
   alignItems: 'center',
@@ -303,7 +290,6 @@ const iconOnlyWrapperStyle = style({
   margin: 0,
 });
 
-// Criar a receita do botão
 export const buttonRecipe = recipe({
   base: baseButtonStyle,
   variants: {
@@ -362,7 +348,6 @@ export const buttonRecipe = recipe({
   }
 });
 
-// Exportar estilos para o ícone
 export const iconWrapperRecipe = recipe({
   base: iconWrapperBaseStyle,
   variants: {
@@ -376,6 +361,5 @@ export const iconWrapperRecipe = recipe({
   }
 });
 
-// Tipos para as variantes
 export type ButtonVariants = RecipeVariants<typeof buttonRecipe>;
 export type IconWrapperVariants = RecipeVariants<typeof iconWrapperRecipe>;
