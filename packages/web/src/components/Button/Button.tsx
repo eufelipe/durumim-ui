@@ -1,23 +1,32 @@
 import React from 'react';
+
+import { buttonConfig } from '@durumim-ui/core';
+
 import { buttonRecipe, iconWrapperRecipe, ButtonVariants } from './styles.css';
 import { CheckCircle, AlertCircle, AlertTriangle, Info, ChevronRight } from './Icons';
 
 type ButtonBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>;
 
-export interface ButtonProps extends ButtonBaseProps, ButtonVariants {
-  icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
-  children?: React.ReactNode;
-  fullWidth?: boolean;
-}
-
 export type SemanticColorType = 'default' | 'success' | 'danger' | 'warning' | 'info';
+export type ElementPosition = 'left' | 'right';
+
+export interface ButtonProps extends ButtonBaseProps, ButtonVariants {
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'solid' | 'outlined' | 'ghost';
+  color?: SemanticColorType;
+  disabled?: boolean;
+  iconOnly?: boolean;
+  icon?: React.ReactNode;
+  iconPosition?: ElementPosition;
+  fullWidth?: boolean;
+  children?: React.ReactNode;
+}
 
 export interface IconProps {
   size?: number;
   color?: string;
   semanticColor?: SemanticColorType;
-  position?: 'left' | 'right';
+  position?: ElementPosition;
   iconOnly?: boolean;
   children?: React.ReactNode;
 }
@@ -30,17 +39,17 @@ const iconsMap = {
   default: ChevronRight,
 };
 
-const Icon = ({
+const Icon: React.FC<IconProps> = ({
   size = 20,
   position = 'left',
   semanticColor,
   iconOnly = false,
   children,
   ...props
-}: IconProps) => {
+}) => {
   const IconComponent = semanticColor ? iconsMap[semanticColor] : iconsMap.default;
 
-  const iconSize = size;
+  const iconSize = size || parseInt(buttonConfig.icon.sizes.medium.width);
 
   return (
     <span className={iconWrapperRecipe({ position })}>

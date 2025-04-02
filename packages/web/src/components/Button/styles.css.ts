@@ -1,8 +1,24 @@
 import { style, createVar } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { colors, radii, space, fontSizes } from '@durumim-ui/design-tokens';
 
-// Definir variáveis de CSS
+import { colors } from '@durumim-ui/design-tokens';
+
+import { buttonConfig } from '@durumim-ui/core';
+
+const mapSemanticStylesToVars = (variant: string, color: string) => {
+  const styles = buttonConfig.getSemanticStyles(variant, color);
+  const result = {} as Record<string, string>;
+
+  if (styles.backgroundColor) result[buttonBackgroundColor] = styles.backgroundColor;
+  if (styles.color) result[buttonTextColor] = styles.color;
+  if (styles.borderColor) result[buttonBorderColor] = styles.borderColor;
+  if (styles.hoverBackgroundColor) result[buttonHoverBackgroundColor] = styles.hoverBackgroundColor;
+  if (styles.hoverColor) result[buttonHoverTextColor] = styles.hoverColor;
+  if (styles.hoverBorderColor) result[buttonHoverBorderColor] = styles.hoverBorderColor;
+
+  return result;
+};
+
 const buttonBackgroundColor = createVar();
 const buttonTextColor = createVar();
 const buttonBorderColor = createVar();
@@ -10,17 +26,17 @@ const buttonHoverBackgroundColor = createVar();
 const buttonHoverTextColor = createVar();
 const buttonHoverBorderColor = createVar();
 
-// Estilos base do botão
+
 const baseButtonStyle = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: radii.xs,
+  borderRadius: buttonConfig.specs.borderRadius,
   fontWeight: 600,
   cursor: 'pointer',
-  transition: 'all 0.2s ease-in-out',
-  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.05)',
-  borderWidth: '2px',
+  transition: buttonConfig.interaction.hover.transition,
+  boxShadow: buttonConfig.specs.shadow,
+  borderWidth: `${buttonConfig.specs.borderWidth}px`,
   borderStyle: 'solid',
   outline: 'none',
   position: 'relative',
@@ -37,101 +53,109 @@ const baseButtonStyle = style({
   },
 
   ':focus': {
-    boxShadow: '0 0 0 3px rgba(31, 109, 140, 0.3)',
+    boxShadow: buttonConfig.interaction.focus.boxShadow,
   },
 });
 
-// Variantes de tamanho
 const sizeVariants = {
   small: style({
-    fontSize: fontSizes.xs,
-    paddingLeft: space[6],
-    paddingRight: space[6],
-    paddingTop: space[2],
-    paddingBottom: space[2],
-    height: '32px',
+    fontSize: buttonConfig.scales.small.fontSize,
+    paddingLeft: buttonConfig.scales.small.paddingHorizontal,
+    paddingRight: buttonConfig.scales.small.paddingHorizontal,
+    paddingTop: buttonConfig.scales.small.paddingVertical,
+    paddingBottom: buttonConfig.scales.small.paddingVertical,
+    height: buttonConfig.scales.small.height,
   }),
   medium: style({
-    fontSize: fontSizes.md,
-    paddingLeft: space[9],
-    paddingRight: space[9],
-    paddingTop: space[3],
-    paddingBottom: space[3],
-    height: '40px',
+    fontSize: buttonConfig.scales.medium.fontSize,
+    paddingLeft: buttonConfig.scales.medium.paddingHorizontal,
+    paddingRight: buttonConfig.scales.medium.paddingHorizontal,
+    paddingTop: buttonConfig.scales.medium.paddingVertical,
+    paddingBottom: buttonConfig.scales.medium.paddingVertical,
+    height: buttonConfig.scales.medium.height,
   }),
   large: style({
-    fontSize: fontSizes.lg,
-    paddingLeft: space[12],
-    paddingRight: space[12],
-    paddingTop: space[3],
-    paddingBottom: space[3],
-    height: '48px',
+    fontSize: buttonConfig.scales.large.fontSize,
+    paddingLeft: buttonConfig.scales.large.paddingHorizontal,
+    paddingRight: buttonConfig.scales.large.paddingHorizontal,
+    paddingTop: buttonConfig.scales.large.paddingVertical,
+    paddingBottom: buttonConfig.scales.large.paddingVertical,
+    height: buttonConfig.scales.large.height,
   }),
 };
 
-// Estilo para botões de largura completa
+
 const fullWidthStyle = style({
   width: '100%',
   display: 'flex',
 });
 
-// Cores semânticas para diferentes tipos de botões
-const semanticColors = {
-  success: colors.success,
-  danger: colors.danger,
-  warning: colors.warning,
-  info: colors.info
-};
 
-// Variantes de estilo (solid, outlined, ghost)
+const disabledStyle = style({
+  cursor: 'not-allowed',
+  opacity: buttonConfig.interaction.disabled.opacity,
+  pointerEvents: buttonConfig.interaction.disabled.pointerEvents,
+
+  ':hover': {
+    opacity: buttonConfig.interaction.disabled.opacity,
+  },
+});
+
+
+const iconOnlyStyle = style({
+  aspectRatio: '1 / 1',
+  padding: buttonConfig.icon.spacing,
+});
+
+
 const styleVariantStyles = {
   solid: {
     default: style({
       vars: {
-        [buttonBackgroundColor]: colors.primary,
-        [buttonTextColor]: colors.white,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: colors.blue[700],
-        [buttonHoverTextColor]: colors.white,
-        [buttonHoverBorderColor]: 'transparent',
+        [buttonBackgroundColor]: buttonConfig.variants.solid.backgroundColor,
+        [buttonTextColor]: buttonConfig.variants.solid.color,
+        [buttonBorderColor]: buttonConfig.variants.solid.borderColor,
+        [buttonHoverBackgroundColor]: buttonConfig.variants.solid.hoverBackgroundColor,
+        [buttonHoverTextColor]: buttonConfig.variants.solid.color,
+        [buttonHoverBorderColor]: buttonConfig.variants.solid.borderColor,
       },
     }),
     success: style({
       vars: {
-        [buttonBackgroundColor]: semanticColors.success,
+        [buttonBackgroundColor]: buttonConfig.semanticColors.success,
         [buttonTextColor]: colors.white,
         [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: colors.green[700],
+        [buttonHoverBackgroundColor]: buttonConfig.semanticLightColors.success,
         [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     danger: style({
       vars: {
-        [buttonBackgroundColor]: semanticColors.danger,
+        [buttonBackgroundColor]: buttonConfig.semanticColors.danger,
         [buttonTextColor]: colors.white,
         [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: colors.red[700],
+        [buttonHoverBackgroundColor]: buttonConfig.semanticLightColors.danger,
         [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     warning: style({
       vars: {
-        [buttonBackgroundColor]: semanticColors.warning,
+        [buttonBackgroundColor]: buttonConfig.semanticColors.warning,
         [buttonTextColor]: colors.white,
         [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: colors.orange[700],
+        [buttonHoverBackgroundColor]: buttonConfig.semanticLightColors.warning,
         [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
     }),
     info: style({
       vars: {
-        [buttonBackgroundColor]: semanticColors.info,
+        [buttonBackgroundColor]: buttonConfig.semanticColors.info,
         [buttonTextColor]: colors.white,
         [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: colors.blue[600],
+        [buttonHoverBackgroundColor]: buttonConfig.semanticLightColors.info,
         [buttonHoverTextColor]: colors.white,
         [buttonHoverBorderColor]: 'transparent',
       },
@@ -140,126 +164,52 @@ const styleVariantStyles = {
   outlined: {
     default: style({
       vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: colors.primary,
-        [buttonBorderColor]: colors.primary,
-        [buttonHoverBackgroundColor]: 'rgba(31, 109, 140, 0.1)',
-        [buttonHoverTextColor]: colors.blue[700],
-        [buttonHoverBorderColor]: colors.blue[700],
+        [buttonBackgroundColor]: buttonConfig.variants.outlined.backgroundColor,
+        [buttonTextColor]: buttonConfig.variants.outlined.color,
+        [buttonBorderColor]: buttonConfig.variants.outlined.borderColor,
+        [buttonHoverBackgroundColor]: buttonConfig.variants.outlined.hoverBackgroundColor,
+        [buttonHoverTextColor]: buttonConfig.variants.outlined.hoverColor,
+        [buttonHoverBorderColor]: buttonConfig.variants.outlined.hoverBorderColor,
       },
     }),
     success: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.success,
-        [buttonBorderColor]: semanticColors.success,
-        [buttonHoverBackgroundColor]: 'rgba(72, 187, 120, 0.1)',
-        [buttonHoverTextColor]: colors.green[700],
-        [buttonHoverBorderColor]: colors.green[700],
-      },
+      vars: mapSemanticStylesToVars('outlined', 'success'),
     }),
     danger: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.danger,
-        [buttonBorderColor]: semanticColors.danger,
-        [buttonHoverBackgroundColor]: 'rgba(245, 101, 101, 0.1)',
-        [buttonHoverTextColor]: colors.red[700],
-        [buttonHoverBorderColor]: colors.red[700],
-      },
+      vars: mapSemanticStylesToVars('outlined', 'danger'),
     }),
     warning: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.warning,
-        [buttonBorderColor]: semanticColors.warning,
-        [buttonHoverBackgroundColor]: 'rgba(246, 173, 85, 0.1)',
-        [buttonHoverTextColor]: colors.orange[700],
-        [buttonHoverBorderColor]: colors.orange[700],
-      },
+      vars: mapSemanticStylesToVars('outlined', 'warning'),
     }),
     info: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.info,
-        [buttonBorderColor]: semanticColors.info,
-        [buttonHoverBackgroundColor]: 'rgba(66, 153, 225, 0.1)',
-        [buttonHoverTextColor]: colors.blue[600],
-        [buttonHoverBorderColor]: colors.blue[600],
-      },
+      vars: mapSemanticStylesToVars('outlined', 'info'),
     }),
   },
   ghost: {
     default: style({
       vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: colors.primary,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: 'rgba(31, 109, 140, 0.1)',
-        [buttonHoverTextColor]: colors.blue[700],
-        [buttonHoverBorderColor]: 'transparent',
+        [buttonBackgroundColor]: buttonConfig.variants.ghost.backgroundColor,
+        [buttonTextColor]: buttonConfig.variants.ghost.color,
+        [buttonBorderColor]: buttonConfig.variants.ghost.borderColor,
+        [buttonHoverBackgroundColor]: buttonConfig.variants.ghost.hoverBackgroundColor,
+        [buttonHoverTextColor]: buttonConfig.variants.ghost.hoverColor,
+        [buttonHoverBorderColor]: buttonConfig.variants.ghost.borderColor,
       },
     }),
     success: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.success,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: 'rgba(72, 187, 120, 0.1)',
-        [buttonHoverTextColor]: colors.green[700],
-        [buttonHoverBorderColor]: 'transparent',
-      },
+      vars: mapSemanticStylesToVars('ghost', 'success'),
     }),
     danger: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.danger,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: 'rgba(245, 101, 101, 0.1)',
-        [buttonHoverTextColor]: colors.red[700],
-        [buttonHoverBorderColor]: 'transparent',
-      },
+      vars: mapSemanticStylesToVars('ghost', 'danger'),
     }),
     warning: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.warning,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: 'rgba(246, 173, 85, 0.1)',
-        [buttonHoverTextColor]: colors.orange[700],
-        [buttonHoverBorderColor]: 'transparent',
-      },
+      vars: mapSemanticStylesToVars('ghost', 'warning'),
     }),
     info: style({
-      vars: {
-        [buttonBackgroundColor]: 'transparent',
-        [buttonTextColor]: semanticColors.info,
-        [buttonBorderColor]: 'transparent',
-        [buttonHoverBackgroundColor]: 'rgba(66, 153, 225, 0.1)',
-        [buttonHoverTextColor]: colors.blue[600],
-        [buttonHoverBorderColor]: 'transparent',
-      },
+      vars: mapSemanticStylesToVars('ghost', 'info'),
     }),
   },
 };
-
-// Estilo para botões desativados
-const disabledStyle = style({
-  cursor: 'not-allowed',
-  opacity: 0.6,
-  pointerEvents: 'none',
-
-  ':hover': {
-    opacity: 0.6,
-  },
-});
-
-// Estilo para botões apenas com ícone
-const iconOnlyStyle = style({
-  aspectRatio: '1 / 1',
-  padding: space[2],
-});
-
 
 export const buttonRecipe = recipe({
   base: baseButtonStyle,
@@ -325,20 +275,13 @@ const baseIconWrapperStyle = style({
   justifyContent: 'center',
 });
 
-const leftIconStyle = style({
-  marginRight: space[2],
-});
-
-const rightIconStyle = style({
-  marginLeft: space[2],
-});
 
 export const iconWrapperRecipe = recipe({
   base: baseIconWrapperStyle,
   variants: {
     position: {
-      left: leftIconStyle,
-      right: rightIconStyle,
+      left: style({ marginRight: buttonConfig.icon.spacing }),
+      right: style({ marginLeft: buttonConfig.icon.spacing }),
     },
   },
   defaultVariants: {

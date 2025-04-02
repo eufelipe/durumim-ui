@@ -1,2 +1,2 @@
-export * from './button';
-export * from './typography';
+export * from './button/button';
+export * from './typography/typography';
