@@ -15,6 +15,7 @@
     "cspell": "cspell \"./packages/**/src/**/*\"",
     "delete-node-modules": "pnpm -r exec -- rm -rf node_modules || false",
     "reset-cache": "pnpm -r exec -- rm -rf pnpm-lock.yaml && pnpm i",
+    "clean-cache-storybook": "rm -rf ./packages/docs/.storybook/cache",
     "prepare": "husky install"
   },
   "keywords": [
