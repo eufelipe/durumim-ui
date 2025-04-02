@@ -6,7 +6,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [
     react(),
-    vanillaExtractPlugin()
+    vanillaExtractPlugin({
+      identifiers: 'debug'
+    })
   ],
   resolve: {
     alias: {
@@ -15,6 +17,9 @@ export default defineConfig({
       '@durumim-ui/design-tokens': path.resolve(__dirname, '../design-tokens/src'),
     },
     extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.css', '.css.ts']
+  },
+  optimizeDeps: {
+    exclude: ['@vanilla-extract/css', '@vanilla-extract/recipes', '@vanilla-extract/sprinkles']
   },
   css: {
     modules: {

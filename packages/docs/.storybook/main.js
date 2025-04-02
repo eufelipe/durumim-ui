@@ -24,7 +24,9 @@ const config = {
   },
   async viteFinal(config, { configType }) {
     config.plugins = config.plugins || [];
-    config.plugins.push(vanillaExtractPlugin());
+    config.plugins.push(vanillaExtractPlugin({
+      identifiers: 'debug'
+    }));
 
     config.resolve = config.resolve || {};
     config.resolve.alias = {
@@ -32,6 +34,11 @@ const config = {
       '@durumim-ui/web': path.resolve(__dirname, '../../web/src'),
       '@durumim-ui/core': path.resolve(__dirname, '../../core/src'),
       '@durumim-ui/design-tokens': path.resolve(__dirname, '../../design-tokens/src'),
+    };
+
+    config.optimizeDeps = {
+      ...config.optimizeDeps,
+      exclude: ['@vanilla-extract/css', '@vanilla-extract/recipes', '@vanilla-extract/sprinkles']
     };
 
     return config;
