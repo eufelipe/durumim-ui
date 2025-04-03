@@ -2,7 +2,10 @@ export type SemanticColorType = 'default' | 'success' | 'danger' | 'warning' | '
 export type ElementPosition = 'left' | 'right' | 'top' | 'bottom';
 export type ComponentSize = 'small' | 'medium' | 'large';
 export type StyleVariant = 'solid' | 'outlined' | 'ghost' | 'link';
+
+
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+export type TextVariant = 'lead' | 'big' | 'body' | 'medium' | 'small' | 'tiny';
 
 export interface IHeadingBase {
   level: HeadingLevel;
@@ -22,6 +25,7 @@ export interface IButtonBase extends IFullWidthProps {
   icon?: unknown;
   iconPosition?: Extract<ElementPosition, 'left' | 'right'>;
 }
+
 
 export interface IIconComponent {
   (props: { size?: number; color?: string; [key: string]: unknown }): unknown;

@@ -94,7 +94,7 @@ const fullWidthStyle = style({
 const disabledStyle = style({
   cursor: 'not-allowed',
   opacity: buttonConfig.interaction.disabled.opacity,
-  pointerEvents: buttonConfig.interaction.disabled.pointerEvents,
+  pointerEvents: 'none',
 
   ':hover': {
     opacity: buttonConfig.interaction.disabled.opacity,
