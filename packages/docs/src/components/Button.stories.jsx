@@ -71,21 +71,6 @@ const getIconProps = (props) => {
   };
 };
 
-export const Default = {
-  args: {
-    children: 'Button',
-    size: 'medium',
-    variant: 'solid',
-    icon: false,
-    iconPosition: 'left',
-    fullWidth: false,
-  },
-  render: (args) => (
-    <Button {...args} {...getIconProps(args)}>
-      {args.children}
-    </Button>
-  ),
-};
 
 export const AllVariations = {
   render: () => (
