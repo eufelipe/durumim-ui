@@ -2,6 +2,12 @@ export type SemanticColorType = 'default' | 'success' | 'danger' | 'warning' | '
 export type ElementPosition = 'left' | 'right' | 'top' | 'bottom';
 export type ComponentSize = 'small' | 'medium' | 'large';
 export type StyleVariant = 'solid' | 'outlined' | 'ghost' | 'link';
+export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+
+export interface IHeadingBase {
+  level: HeadingLevel;
+  as?: unknown;
+}
 
 export interface IFullWidthProps {
   fullWidth?: boolean;
@@ -40,4 +46,4 @@ export function createIconMap(implementation: {
   default: IIconComponent;
 }): IconsMap {
   return implementation;
-} 
+}
