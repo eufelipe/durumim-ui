@@ -42,7 +42,19 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Home', '*'],
+        order: [
+          'Home', 
+          'Typography', 
+          [
+            'Title',
+            'Heading',
+            'Text',
+            'Label',
+            'Caption',
+            'Overline'
+          ],
+          '*'
+        ],
       },
     },
     themes: {
