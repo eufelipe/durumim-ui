@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -56,10 +54,8 @@ jobs:
         working-directory: ./packages/docs
         run: touch storybook-static/.nojekyll
 
-      - name: Deploy storybook
-        working-directory: ./packages/docs
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx -y @storybook/storybook-deployer@2.8.16 --ci --existing-output-dir=storybook-static --source-branch=main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: packages/docs/storybook-static
+          branch: gh-pages

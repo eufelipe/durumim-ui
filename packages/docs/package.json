@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "storybook dev",
     "build": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "touch storybook-static/.nojekyll && storybook-to-ghpages"
   },
   "dependencies": {
     "@durumim-ui/design-tokens": "workspace:*",
