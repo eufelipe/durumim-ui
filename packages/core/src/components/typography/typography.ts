@@ -1,4 +1,5 @@
 import {
+    colors,
     fonts,
     fontSizes,
     fontWeights,
@@ -110,11 +111,46 @@ export const overlineStyle = {
     fontFamily: fonts.default,
 };
 
-// buttons
-export const buttonTextStyle = {
-    fontSize: fontSizes.sm,    // 0.875rem (14px)
-    fontWeight: fontWeights.semibold,
-    lineHeight: lineHeights.base,
-    textTransform: 'uppercase',
-    fontFamily: fonts.default,
+// helper text
+export const helperTextStyle = {
+    ...captionStyle,
+    color: colors.gray["600"],
 };
+
+// error text
+export const errorTextStyle = {
+    ...captionStyle,
+    color: colors.danger,
+};
+
+// success text
+export const successTextStyle = {
+    ...captionStyle,
+    color: colors.success,
+};
+
+// warning text
+export const warningTextStyle = {
+    ...captionStyle,
+    color: colors.warning,
+};
+
+// info text
+export const infoTextStyle = {
+    ...captionStyle,
+    color: colors.info,
+};
+
+// disabled text
+export const disabledTextStyle = {
+    ...captionStyle,
+    color: colors.gray["400"],
+};
+
+// link text
+export const linkTextStyle = {
+    ...captionStyle,
+    color: colors.primary,
+    textDecoration: 'underline',
+};
+ 
