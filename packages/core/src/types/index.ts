@@ -3,9 +3,11 @@ export type ElementPosition = 'left' | 'right' | 'top' | 'bottom';
 export type ComponentSize = 'small' | 'medium' | 'large';
 export type StyleVariant = 'solid' | 'outlined' | 'ghost' | 'link';
 
-
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 export type TextVariant = 'lead' | 'big' | 'body' | 'medium' | 'small' | 'tiny';
+
+export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type IconColor = 'inherit' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
 
 export interface IHeadingBase {
   level: HeadingLevel;

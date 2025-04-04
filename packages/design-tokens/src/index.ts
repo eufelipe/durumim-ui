@@ -11,3 +11,4 @@ export * from "./sizes";
 export * from "./space";
 export * from "./transitions";
 export * from "./z-indices";
+export * from "./icon";
