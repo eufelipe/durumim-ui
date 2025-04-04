@@ -1,0 +1,1 @@
+const t={thin:100,extraLight:200,light:300,regular:400,medium:500,semibold:600,bold:700,extrabold:800,black:900},e={tight:"-0.05rem",normal:"0",wide:"0.05rem",extraWide:"0.1rem"},r={shorter:1.2,short:1.3,base:1.5,tall:1.75,taller:2};export{e as a,t as f,r as l};
