@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "storybook dev",
     "build": "storybook build",
-    "deploy-storybook": "touch ./storybook-static/.nojekyll && storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "@durumim-ui/design-tokens": "workspace:*",
@@ -28,6 +28,7 @@
     "@storybook/blocks": "^8.6.12",
     "@storybook/react": "^8.6.12",
     "@storybook/react-vite": "^8.6.12",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/test": "^8.6.12",
     "@vitejs/plugin-react": "^4.3.4",
     "postcss": "^8.5.3",

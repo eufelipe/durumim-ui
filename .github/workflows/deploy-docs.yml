@@ -8,20 +8,24 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
@@ -39,13 +43,23 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build packages 
         run: pnpm build
 
+      - name: Build Storybook
+        working-directory: ./packages/docs
+        run: pnpm build
+
+      - name: Create .nojekyll file
+        working-directory: ./packages/docs
+        run: touch storybook-static/.nojekyll
+
       - name: Deploy storybook
         working-directory: ./packages/docs
-        run: pnpm deploy-storybook --frozen-lockfile --existing-output-dir=storybook-static
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx -y @storybook/storybook-deployer@2.8.16 --ci --existing-output-dir=storybook-static --source-branch=main
         env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
