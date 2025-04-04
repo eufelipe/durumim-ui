@@ -9,4 +9,7 @@ export * from './Label/Label';
 export { default as Label } from './Label/Label';
 
 export * from './Caption/Caption';
-export { default as Caption } from './Caption/Caption';  
+export { default as Caption } from './Caption/Caption';
+
+export * from './Overline/Overline';
+export { default as Overline } from './Overline/Overline';  
