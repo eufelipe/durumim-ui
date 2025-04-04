@@ -1,5 +1,7 @@
-import { fonts } from '@durumim-ui/design-tokens';
 import React from 'react';
+
+import { fonts } from '@durumim-ui/design-tokens';
+
 import { TokenVisualizerProps } from './types';
 
 export const TokenVisualizer = ({

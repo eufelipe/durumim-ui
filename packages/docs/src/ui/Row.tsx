@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const Row = ({ children, style = {} }) => (
+type RowProps = {
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+};
+
+export const Row = ({ children, style = {} }: RowProps) => (
   <div style={{ 
     display: 'flex', 
     flexDirection: 'row', 

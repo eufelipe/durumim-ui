@@ -1,8 +1,15 @@
 import React from "react";
 
-export const Section = ({ title, children, style = {}, titleStyle = {} }) => (
+type SectionProps = {
+  title: string;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+  titleStyle?: React.CSSProperties;
+};
+
+export const Section = ({ title, children, style = {}, titleStyle = {} }: SectionProps) => (
   <div style={{ 
-    marginBottom: '32px',
+    marginBottom: '50px',
     ...style
   }}>
     <h3 style={{ marginBottom: '12px', ...titleStyle }}>{title}</h3>

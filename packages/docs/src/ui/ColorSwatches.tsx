@@ -2,6 +2,7 @@ import React from 'react';
 import { TokenVisualizer } from './TokenVisualizer';
 import { ColorSwatchesProps } from './types';
 
+
 export const ColorSwatches = ({ 
   colors, 
   title, 
