@@ -1,3 +1,4 @@
+import { colors } from "@durumim-ui/design-tokens";
 import React from "react";
 
 type SectionProps = {
@@ -12,7 +13,7 @@ export const Section = ({ title, children, style = {}, titleStyle = {} }: Sectio
     marginBottom: '50px',
     ...style
   }}>
-    <h3 style={{ marginBottom: '12px', ...titleStyle }}>{title}</h3>
+    <h3 style={{ marginBottom: '12px', color: colors.secondary, ...titleStyle }}>{title}</h3>
     {children}
   </div>
 );
