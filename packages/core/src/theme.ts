@@ -40,8 +40,8 @@ export function getTheme() {
         text: typography.textScales,
         label: typography.labelStyle,
         caption: typography.captionStyle,
-        overline: typography.overlineStyle,
-        buttonText: typography.buttonTextStyle,
+        overline: typography.overlineStyle, 
+        title: typography.titleStyle,
       },
     },
   };

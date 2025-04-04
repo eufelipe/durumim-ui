@@ -8,6 +8,15 @@ import {
 } from "@durumim-ui/design-tokens";
 
 
+// Title
+export const titleStyle = {
+    fontSize: fontSizes["6xl"],
+    fontWeight: fontWeights.semibold,
+    lineHeight: lineHeights.base,
+    fontFamily: fonts.heading,
+};
+
+
 // Headings h1 a h5
 export const headingScales = {
     h1: {
